@@ -28,7 +28,7 @@ export default function Home({ data }) {
 }
 export const getServerSideProps = withIronSessionSsr(
   async function getServerSideProps({ req }) {
-    let endpoint = "api/hello";
+    let endpoint = "/api/hello";
     let api_data = { data: "test api" };
 
     let response = await fetch(endpoint, {
