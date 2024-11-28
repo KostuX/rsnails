@@ -1,5 +1,5 @@
 export const cfg_site = {
-  title: "Template",
+  title: "RSnails",
   year: "2024",
   theme_secondary_light: "#1e00ff",
   theme_secondary_dark: "#ff0000",
@@ -8,28 +8,14 @@ export const cfg_site = {
       label: "Home",
       href: "/",
     },
-    {
-      label: "Test",
-      href: "/test",
-    },
-    {
-      label: "API",
-      href: "/api/hello",
-    },
-    {
-      label: "About",
-      href: "/about",
-    },
+   
   ],
   navMenuItems: [
     {
-      label: "Profile",
+      label: "Home",
       href: "#",
     },
-    {
-      label: "About",
-      href: "#",
-    },
+  
   ],
 
   footerLinks: [
