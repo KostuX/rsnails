@@ -16,8 +16,7 @@ export default function Home({ data }) {
     <DefaultLayout>
       <div className="justify-between h-full text-center ">
         <div className="border  m-5 text-lg border-theme_secondary">www.RSnails</div>
-        <div className="  m-5 ">For sale!</div>
-        <div className="  m-5 ">goldiskiker@gmail.com</div>
+        
 
     
       </div>
