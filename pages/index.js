@@ -5,10 +5,10 @@ export default function Home() {
   return (
     <DefaultLayout>
       <div className="justify-between h-full text-center ">
-        <div className="border  m-5 text-lg border-theme_secondary">www.RSnails</div>
-        
+       <Banner/>
+       <div className="h-screen block"></div>
 
-    
+       
       </div>
     </DefaultLayout>
   );
