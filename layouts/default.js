@@ -7,7 +7,7 @@ export default function DefaultLayout({ children }) {
     <div>
       <Head />
       <Navbar />
-      <main className=" h-screen">{children}</main>
+      <main className="block">{children}</main>
       <Foot />
     </div>
   );
