@@ -5,7 +5,15 @@ export const cfg_site = {
   theme_secondary_dark: "#ff0000",
   navItems: [
     {
-      label: "Home",
+      label: "Paslaugos",
+      href: "/",
+    },
+    {
+      label: "Galerija",
+      href: "/",
+    },
+    {
+      label: "Susisiekti",
       href: "/",
     },
    

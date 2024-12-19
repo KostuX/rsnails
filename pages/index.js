@@ -4,12 +4,12 @@ import Banner from "../components/banner";
 export default function Home() {
   return (
     <DefaultLayout>
-      <div className="justify-between h-screen text-center ">
+     
        <Banner/>
        
-
+<div className="bg-red-100 h-screen text-center font-bold text-8xl">Comming soon</div>
        
-      </div>
+     
     </DefaultLayout>
   );
 }
