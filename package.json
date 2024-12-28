@@ -11,6 +11,7 @@
   "dependencies": {
     "@nextui-org/navbar": "^2.0.30",
     "@nextui-org/react": "^2.3.6",
+    "gsap": "^3.12.5",
     "next": "^14.2.18",
     "next-themes": "^0.3.0",
     "react": "^18",
