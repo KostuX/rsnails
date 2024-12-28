@@ -46,20 +46,12 @@ img{
   width: 100vw;
   height: 150vh;
   overflow: hidden;
-          max-width: 100%;
-          max-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
 
 }
 
-.slider {
-  position: absolute;
-  top:15vh;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  perspective: 300px;
-  perspective-origin: 50% 100%;
-}
+
 
 .card {
   position: absolute;
