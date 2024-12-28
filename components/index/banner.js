@@ -46,12 +46,12 @@ export default function Banner() {
     shouldAlwaysCompleteAnimation: true,
     expanded: false,
     children: (
-      <div className="mt-24 text-center grid flex items-center justify-center">
+      <div className="mt-24 sm:mt-56  text-center grid flex items-center justify-center ">
         <div>
           <h1 className={`text-8xl font-bold ${kranky.className} bg-gradient-to-r from-blue-100 via-yellow-200 to-indigo-200 text-transparent bg-clip-text `} >
             RS Nails
           </h1>
-          <h5 className={`bg-gradient-to-r from-blue-200 via-red-200 to-indigo-200 inline-block text-transparent bg-clip-text  text-2xl ${kranky.className}`} >Color Your Nails, Express Yourself</h5>
+          <h5 className={`bg-gradient-to-r from-blue-200 via-red-200 to-indigo-200 inline-block text-transparent bg-clip-text  text-2xl ${kranky.className} sm:mt-12`} >Color Your Nails, Express Yourself</h5>
         </div>
         
 
