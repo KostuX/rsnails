@@ -177,7 +177,7 @@ export default function Person() {
     
         */
   return (
-    <div className="min-h-screen   " ref={main_div}>
+    <div className="min-h-screen  backdrop-blur-xl z-0  " ref={main_div}>
       <div
         className="flex justify-center w-screen   overflow-hidden"
         ref={load_1}
