@@ -4,7 +4,7 @@ import { Head } from "../components/head";
 
 export default function DefaultLayout({ children }) {
   return (
-    <div>
+    <div className="overflow-hidden">
       <Head />
       <Navbar />
       <main className="block">{children}</main>

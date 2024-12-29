@@ -1,4 +1,5 @@
 import DefaultLayout from "../layouts/default";
+import Intro from "../components/index/intro";
 import Banner from "../components/index/banner";
 import Person from "../components/index/person";
 import Gallery from "../components/index/gallery";
@@ -7,7 +8,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <DefaultLayout>
-      <Banner />
+      <Intro />
       <Person />
       <Gallery />
 

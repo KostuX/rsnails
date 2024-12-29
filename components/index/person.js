@@ -77,7 +77,7 @@ export default function Person() {
       el,
       { opacity: 0, x: 100 },
       {
-        delay: 0.5,
+        delay: 0.3,
         opacity: 1,
         duration: 1,
         ease: "power1",
@@ -96,7 +96,6 @@ export default function Person() {
       el,
       { opacity: 0, x: 100 },
       {
-        delay: 0.1,
         opacity: 1,
         duration: 1,
         ease: "power5",
@@ -137,7 +136,6 @@ export default function Person() {
       el,
       { opacity: 0, y: 200 },
       {
-        delay: 0.1,
         opacity: 1,
         duration: 1,
         ease: "power1",
@@ -177,13 +175,13 @@ export default function Person() {
     
         */
   return (
-    <div className="min-h-screen  backdrop-blur-xl z-0  " ref={main_div}>
+    <div className=" backdrop-blur-xl z-0  " ref={main_div}>
       <div
         className="flex justify-center w-screen   overflow-hidden"
         ref={load_1}
       >
         <div
-          className="text-center  font-thin text-2xl max-w-2xl my-24 mx-12 "
+          className="text-center content-center h-screen font-thin text-2xl max-w-2xl my-24 mx-12 "
           ref={top_div}
         >
           Mūsų kvalifikuoti manikiūro meistrai yra apmokyti, todėl garantuojame
@@ -193,9 +191,9 @@ export default function Person() {
         </div>
       </div>
       <Divider className="mb-24" ref={divider_2} />
-      <div className="grid  sm:grid-cols-2 grid-cols-1  ">
+      <div className="grid h-screen  sm:grid-cols-2 grid-cols-1  ">
         <div
-          className="text-center  mx-4 grid justify-center items-center "
+          className="text-center  mx-4 grid justify-center items-center  "
           ref={image}
         >
           <img
@@ -205,8 +203,8 @@ export default function Person() {
             style={{ height: "30vh", width: "30vh" }}
           />
         </div>
-        <div className=" items-center  justify-center max-w-2xl">
-          <div className="text-center mt-12">
+        <div className=" items-center  justify-center content-center max-w-2xl">
+          <div className="text-center mt-12 ">
             <div
               className="w-full font-bold text-2xl mb-4"
               ref={description_title}

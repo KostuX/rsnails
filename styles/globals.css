@@ -79,21 +79,8 @@ img{
   clip-path: polygon(0 0 , 100% 0, 100% 100%, 0% 100%);
 }
 
-h1 {
-  position: relative;
-  text-align: center;
-  font-family: "PP Editorial Old";
-  font-size: 1vw;
-  font-weight: 300;
-  letter-spacing: -0.05em;
-  text-transform: uppercase;
-  color: azure;
-}
 
-h1 span {
-  position: relative;
-  font-display: inline-block;
-}
+
 
 @media (max-width: 900px) {
   .pages {
@@ -101,3 +88,4 @@ h1 span {
   }
   
 }
+

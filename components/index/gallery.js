@@ -30,11 +30,13 @@ export default function Gallery() {
       duration: 1,
       ease: "cubic",
       stagger: -0.1,
+
       opacity: 1,
       scrollTrigger: {
         trigger: main_div.current,
+
         toggleActions: "restart pause pause reverse",
-        // scrub: 1, // true or number  // tie to scrool bar
+        // scrub: 0.1, // true or number  // tie to scrool bar
         // pin: true
       },
     });
@@ -47,10 +49,6 @@ export default function Gallery() {
   }, []);
 
   function nextSlide() {
-    if (isAnimating) return;
-
-    isAnimating = true;
-
     let slider = slider_ref.current;
     let cards_loc = cards;
     let lastCard = cards_loc.pop();
@@ -78,7 +76,7 @@ export default function Gallery() {
       <Divider />
       <div className=" text-center my-24 font-bold text-6xl ">Darbai</div>
 
-      <div className="">
+      <div className="mt-96">
         <div
           className="relative  h-screen overflow-visible justify-center flex"
           onClick={nextSlide}
@@ -89,7 +87,7 @@ export default function Gallery() {
           >
             {images.map((img, i) => (
               <div
-                className="absolute  w-5/6 sm:w-1/3  border rounded-xl overflow-hidden bg-black"
+                className="absolute  w-5/6 md:w-3/4 xl:w-1/3  border rounded-xl overflow-hidden bg-black"
                 style={{
                   transform: "translate3d(-50%, -50%, 0)",
                 }}
