@@ -72,13 +72,13 @@ export default function Gallery() {
   }
 
   return (
-    <div className=" " ref={main_div}>
+    <div className=" xl:h-screen" ref={main_div}>
       <Divider />
       <div className=" text-center my-24 font-bold text-6xl ">Darbai</div>
 
-      <div className="mt-96">
+      <div className=" mt-48 sm:mt-96">
         <div
-          className="relative  h-screen overflow-visible justify-center flex"
+          className="relative  overflow-visible justify-center flex"
           onClick={nextSlide}
         >
           <div

@@ -6,7 +6,6 @@ import { useGSAP } from "@gsap/react";
 export default function splitText(text) {
   const chars = useRef([]);
   useGSAP(() => {
-    console.log(chars.current);
     gsap.fromTo(
       chars.current,
       {
@@ -28,8 +27,7 @@ export default function splitText(text) {
       <div className="overflow-hidden ">
         {textArr.map((char, i) => (
           <div
-            className="transition translate-y-8 inline-block duration-1000 ease-in-out"
-            s
+            className="transition translate-y-4 inline-block duration-1000 ease-in-out"
             key={i}
             ref={(el) => {
               chars.current.push(el);

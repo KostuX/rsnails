@@ -17,7 +17,7 @@ export default function Intro() {
   useGSAP(() => {
     gsap
       .timeline()
-      .fromTo(progress.current, { width: 0 }, { width: "+=500", duration: 1 })
+      .fromTo(progress.current, { width: 0 }, { width: "+=500", duration: 1.5 })
       .fromTo(
         black_div.current,
         { ease: "back", opacity: 1, ease: "back.out" },
@@ -38,17 +38,17 @@ export default function Intro() {
     <div className="h-screen w-screen " ref={main_div}>
       <div className="bg-black h-screen w-screen absolute  " ref={black_div}>
         <h1
-          className={`text-white text-center  content-center h-[100vh] text-9xl ${finger_Paint.className} grid  justify-center content-center`}
+          className={`text-white text-center  content-center h-[100vh]  text-4xl  sm:text-9xl ${finger_Paint.className} grid  justify-center content-center`}
           ref={init_name}
         >
           {splitText("RS Nails")}
           <div
-            className="bg-white h-1.5 block rounded-full dark:bg-gray-300  "
+            className="bg-gradient-to-r from-blue-200 via-indigo-300 to-red-600 h-1 block rounded-full dark:bg-gray-300  "
             ref={progress}
           ></div>
         </h1>
       </div>
-      <div className="banner z-0 " ref={banner_div}>
+      <div className="banner  " ref={banner_div}>
         <Banner />
       </div>
     </div>

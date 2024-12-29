@@ -6,32 +6,11 @@ import { useGSAP } from "@gsap/react";
 
 export default function Person() {
   const main_div = useRef();
-  const top_div = useRef();
-  const load_1 = useRef();
-  const divider_1 = useRef();
+
   const divider_2 = useRef();
   const image = useRef();
   const description = useRef();
   const description_title = useRef();
-
-  useGSAP(() => {
-    const el = divider_1.current;
-    gsap.fromTo(
-      el,
-      { opacity: 0, y: 200 },
-      {
-        // delay:0.1,
-        opacity: 1,
-        duration: 1,
-        ease: "power1",
-        y: 0,
-        scrollTrigger: {
-          trigger: el,
-          toggleActions: "restart pause pause reverse",
-        },
-      }
-    );
-  });
 
   useGSAP(() => {
     const el = divider_2.current;
@@ -109,28 +88,6 @@ export default function Person() {
   });
 
   useGSAP(() => {
-    const el = load_1.current;
-    gsap.fromTo(
-      el,
-      { opacity: 0, y: 200 },
-      {
-        delay: 0.1,
-        opacity: 1,
-        duration: 1,
-        ease: "power1",
-        y: 0,
-
-        scrollTrigger: {
-          trigger: el,
-          toggleActions: "restart pause pause reverse",
-          // scrub: 1, // true or number  // tie to scrool bar
-          // pin: true
-        },
-      }
-    );
-  });
-
-  useGSAP(() => {
     const el = main_div.current;
     gsap.fromTo(
       el,
@@ -151,45 +108,8 @@ export default function Person() {
     );
   });
 
-  //https://www.youtube.com/watch?v=X7IBa7vZjmo
-  // https://www.youtube.com/watch?v=l0aI8Ecumy8
-  /*
-    gsap.registerPlugin(ScrollTrigger);
-    
-    
-        const load = useRef(null);
-        useEffect(() => {
-            const el = load.current;
-            gsap.fromTo(
-                el,
-                { opacity: 0 },
-                {
-                    opacity: 1,
-                    duration: 1,
-                    scrollTrigger: {
-                        trigger: el,
-                    },
-                }
-            );
-        }, []);
-    
-        */
   return (
     <div className=" backdrop-blur-xl z-0  " ref={main_div}>
-      <div
-        className="flex justify-center w-screen   overflow-hidden"
-        ref={load_1}
-      >
-        <div
-          className="text-center content-center h-screen font-thin text-2xl max-w-2xl my-24 mx-12 "
-          ref={top_div}
-        >
-          Mūsų kvalifikuoti manikiūro meistrai yra apmokyti, todėl garantuojame
-          nepriekaištingą procedūrą nuo pradžios iki pabaigos. Be to, gausite
-          individualiai pritaikytas stiliaus ir priežiūros rekomendacijas,
-          sukurtas specialiai jums.
-        </div>
-      </div>
       <Divider className="mb-24" ref={divider_2} />
       <div className="grid h-screen  sm:grid-cols-2 grid-cols-1  ">
         <div
