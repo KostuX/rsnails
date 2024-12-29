@@ -1,5 +1,6 @@
 import { Divider } from "@nextui-org/react";
 import { useEffect, useRef, useState } from "react";
+import animateTitle from "../../utils/animateTitle";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -7,29 +8,10 @@ import { useGSAP } from "@gsap/react";
 export default function Person() {
   const main_div = useRef();
 
-  const divider_2 = useRef();
   const image = useRef();
   const description = useRef();
   const description_title = useRef();
-
-  useGSAP(() => {
-    const el = divider_2.current;
-    gsap.fromTo(
-      el,
-      { opacity: 0, y: 100 },
-      {
-        // delay:0.1,
-        opacity: 1,
-        duration: 1,
-        ease: "power1",
-        y: 0,
-        scrollTrigger: {
-          trigger: el,
-          toggleActions: "restart pause pause reverse",
-        },
-      }
-    );
-  });
+  const description_all = useRef();
 
   useGSAP(() => {
     const el = image.current;
@@ -88,7 +70,7 @@ export default function Person() {
   });
 
   useGSAP(() => {
-    const el = main_div.current;
+    const el = description_all.current;
     gsap.fromTo(
       el,
       { opacity: 0, y: 200 },
@@ -109,11 +91,14 @@ export default function Person() {
   });
 
   return (
-    <div className=" backdrop-blur-xl z-0  " ref={main_div}>
-      <Divider className="mb-24" ref={divider_2} />
-      <div className="grid h-screen  sm:grid-cols-2 grid-cols-1  ">
+    <div className="h-screen  " ref={main_div}>
+      <div className="uppercase  text-left ">
+        {" "}
+        {animateTitle("Musu Veikla")}
+      </div>
+      <div className="grid  sm:grid-cols-2 grid-cols-1  ">
         <div
-          className="text-center  mx-4 grid justify-center items-center  "
+          className="text-center  mx-4 grid justify-center content-center mt-12  "
           ref={image}
         >
           <img
@@ -123,8 +108,8 @@ export default function Person() {
             style={{ height: "30vh", width: "30vh" }}
           />
         </div>
-        <div className=" items-center  justify-center content-center max-w-2xl">
-          <div className="text-center mt-12 ">
+        <div className=" items-center content-center justify-center  max-w-2xl">
+          <div className="text-center  " ref={description_all}>
             <div
               className="w-full font-bold text-2xl mb-4"
               ref={description_title}

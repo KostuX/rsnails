@@ -23,7 +23,7 @@ export default function Banner() {
     image: "./bg/bg.jpg",
     translateY: [0, 50],
     opacity: [1, 0.3],
-    scale: [1.05, 1, "easeOutCubic"],
+    scale: [1, 1.5, "easeOutCubic"],
     shouldAlwaysCompleteAnimation: true,
   };
 

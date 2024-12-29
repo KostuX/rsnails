@@ -2,6 +2,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import animateTitle from "../../utils/animateTitle";
+import ComponentLayout from "../../layouts/components";
 export default function Kvalifikuoti() {
   const load_1 = useRef();
   const top_div = useRef();
@@ -10,9 +11,9 @@ export default function Kvalifikuoti() {
     const el = load_1.current;
     gsap.fromTo(
       el,
-      { opacity: 0, y: 200 },
+      { opacity: 0, y: -100 },
       {
-        delay: 0.1,
+        delay: 0.7,
         opacity: 1,
         duration: 1,
         ease: "power1",
@@ -28,11 +29,38 @@ export default function Kvalifikuoti() {
     );
   });
   return (
-    <div className="w-screen ">
-      <div> {animateTitle("text")}</div>
+    <div className="w-screen h-fit sm:h-screen ">
+      <ComponentLayout>
+        {"text"}
+
+        <img
+          className="personal image"
+          src="/profile.jpg"
+          alt="Profile Image"
+          style={{ height: "30vh", width: "30vh" }}
+        />
+        <div className="w-full font-bold text-2xl mb-4">Rs Nails</div>
+        <div className="text-center font-thin mx-12">
+          Esu profesionali manikiūrininkė, teikianti aukščiausios kokybės
+          paslaugas. Kiekvienam klientui suteikiu individualų dėmesį,
+          atsižvelgdama į jų pageidavimus ir stilių. Naudodama tik geriausias
+          priemones, užtikrinu ilgalaikį ir nepriekaištingą rezultatą. Mano
+          tikslas – suteikti jums elegancijos ir pasitikėjimo savimi.
+        </div>
+      </ComponentLayout>
+      {/*}
+      <div className="uppercase  text-right"> {animateTitle("Apie Mus")}</div>
+      <div className="text-center  mx-4 grid justify-center content-center mt-12  ">
+        <img
+          className="personal image"
+          src="/profile.jpg"
+          alt="Profile Image"
+          style={{ height: "30vh", width: "30vh" }}
+        />
+      </div>
       <div className="flex justify-center " ref={load_1}>
         <div
-          className="text-center content-center h-screen font-thin text-2xl max-w-2xl my-24 mx-12 "
+          className="text-center h-[256px]  font-thin text-sm sm:text-4xl max-w-2xl my-24  "
           ref={top_div}
         >
           Mūsų kvalifikuoti manikiūro meistrai yra apmokyti, todėl garantuojame
@@ -41,6 +69,7 @@ export default function Kvalifikuoti() {
           sukurtas specialiai jums.
         </div>
       </div>
+      {*/}
     </div>
   );
 }

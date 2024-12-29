@@ -17,7 +17,7 @@ export default function Intro() {
   useGSAP(() => {
     gsap
       .timeline()
-      .fromTo(progress.current, { width: 0 }, { width: "+=500", duration: 1.5 })
+      .fromTo(progress.current, { width: 0 }, { width: "+=500", duration: 1.3 })
       .fromTo(
         black_div.current,
         { ease: "back", opacity: 1, ease: "back.out" },
@@ -27,10 +27,12 @@ export default function Intro() {
         banner_div.current,
         {
           opacity: 0,
+          scale: 1.1,
         },
         {
           opacity: 1,
           duration: 1,
+          scale: 1,
         }
       );
   });

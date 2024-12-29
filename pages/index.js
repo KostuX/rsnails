@@ -5,8 +5,12 @@ import Kvalifikuoti from "../components/index/block2";
 import Person from "../components/index/person";
 import Gallery from "../components/index/gallery";
 import Image from "next/image";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    window.history.scrollRestoration = "manual";
+  }, []);
   return (
     <DefaultLayout>
       <Intro />

@@ -1,4 +1,5 @@
 import { Button, Divider } from "@nextui-org/react";
+import animateTitle from "../../utils/animateTitle";
 
 import gsap from "gsap";
 import CustomEase from "gsap/dist/CustomEase";
@@ -73,8 +74,7 @@ export default function Gallery() {
 
   return (
     <div className=" xl:h-screen" ref={main_div}>
-      <Divider />
-      <div className=" text-center my-24 font-bold text-6xl ">Darbai</div>
+      <div className=" uppercase text-right "> {animateTitle("darbai")}</div>
 
       <div className=" mt-48 sm:mt-96">
         <div
