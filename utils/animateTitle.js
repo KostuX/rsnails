@@ -12,7 +12,7 @@ export default function animateTitle(txt, left = true) {
 
   function title() {
     return (
-      <div className="overflow-hidden ">
+      <div className="overflow-hidden">
         {textArr.map((char, i) => (
           <div
             className={`transition translate-y-4 inline-block duration-1000 ease-in-out ${titleFont.className} text-4xl `}
@@ -30,11 +30,8 @@ export default function animateTitle(txt, left = true) {
 
   function progressBar() {
     return (
-      <div
-        className="bg-gradient-to-r from-blue-100 via-blue-100 to-blue-100 h-1  rounded-full   "
-        ref={progress}
-      >
-        <div className="bg-red-600 h-1.5 rounded-full dark:bg-blue-500"></div>
+      <div className="bg-red-100" ref={progress}>
+        <div className="bg-gradient-to-r from-red-600 via-blue-100 to-red-100 h-1  rounded-full   "></div>
       </div>
     );
   }
@@ -80,8 +77,8 @@ export default function animateTitle(txt, left = true) {
   });
 
   return (
-    <div className=" justify-center flex">
-      <div className=" mt-24 w-5/6">
+    <div className=" justify-center ">
+      <div className=" mt-24 w-5/6 ">
         {title()}
         {progressBar()}
       </div>

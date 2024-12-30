@@ -27,7 +27,6 @@ export const Navbar = () => {
       >
         <NavbarContent className="basis-1/5 sm:basis-full " justify="start">
           <NavbarBrand as="li" className="gap-3 max-w-fit">
-          
             <NextLink
               className="flex justify-start items-center hidden sm:flex "
               href="/"
@@ -64,21 +63,23 @@ export const Navbar = () => {
         </NavbarContent>
 
         {/** Menu | end | large */}
-        <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+        <NavbarContent className="sm:hidden basis-1 pl-4 " justify="end">
           <ThemeSwitch />
           <NavbarMenuToggle />
-          <NavbarMenu justify="end">
-            {cfg.navMenuItems.map((e, index) => (
-              <NavbarMenuItem key={`${e}-${index}`}>
-                <NextLink
-                  className="w-full hover:underline"
-                  href={e.href}
-                  size="lg"
-                >
-                  {e.label}
-                </NextLink>
-              </NavbarMenuItem>
-            ))}
+          <NavbarMenu justify="end" className="">
+            <div className="mt-36 ">
+              {cfg.navMenuItems.map((e, index) => (
+                <NavbarMenuItem key={`${e}-${index}`}>
+                  <NextLink
+                    className="w-full hover:underline text-center flex justify-center mt-4 font-bold text-2xl"
+                    href={e.href}
+                    size="lg"
+                  >
+                    {e.label}
+                  </NextLink>
+                </NavbarMenuItem>
+              ))}
+            </div>
           </NavbarMenu>
         </NavbarContent>
       </NextUINavbar>

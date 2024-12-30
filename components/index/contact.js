@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import animateTitle from "../../utils/animateTitle";
 import ComponentLayout from "../../layouts/components";
-export default function Kvalifikuoti() {
+export default function Contact() {
   const subTitle = useRef();
   const content = useRef();
   const img = useRef();
@@ -62,28 +62,12 @@ export default function Kvalifikuoti() {
   });
 
   let props = {
-    leftSide: false,
+    leftSide: true,
     elements: {
-      title: "Apie Mus",
-      subTitle: <div ref={subTitle}>Mes</div>,
-      content: (
-        <div ref={content}>
-          Esu profesionali manikiūrininkė, teikianti aukščiausios kokybės
-          paslaugas. Kiekvienam klientui suteikiu individualų dėmesį,
-          atsižvelgdama į jų pageidavimus ir stilių. Naudodama tik geriausias
-          priemones, užtikrinu ilgalaikį ir nepriekaištingą rezultatą. Mano
-          tikslas – suteikti jums elegancijos ir pasitikėjimo savimi.
-        </div>
-      ),
-      img: (
-        <img
-          className="personal image"
-          src="/profile.jpg"
-          alt="Profile Image"
-          style={{ height: "50vh", width: "50vh" }}
-          ref={img}
-        />
-      ),
+      title: "Susisiekti",
+      subTitle: <div ref={subTitle}>Kontaktai</div>,
+      content: <div ref={content}>emai, addresas, mob.</div>,
+      img: <>zemelapis</>,
     },
   };
 

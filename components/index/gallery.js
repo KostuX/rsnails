@@ -31,6 +31,7 @@ export default function Gallery() {
       duration: 1,
       ease: "cubic",
       stagger: -0.1,
+      scale: 0.8,
 
       opacity: 1,
       scrollTrigger: {
@@ -73,32 +74,35 @@ export default function Gallery() {
   }
 
   return (
-    <div className=" xl:h-screen" ref={main_div}>
-      <div className=" uppercase text-right "> {animateTitle("darbai")}</div>
-
-      <div className=" mt-48 sm:mt-96">
-        <div
-          className="relative  overflow-visible justify-center flex"
-          onClick={nextSlide}
-        >
+    <div className="sm:h-screen " ref={main_div}>
+      <div className=" uppercase text-right ">
+        {" "}
+        {animateTitle("darbai", false)}
+      </div>
+      <div className="grid justify-center grid-cols-1 sm:grid-cols-2">
+        <div className="overflow-hidden h-[100vh]">
           <div
-            className="  perspective-[300px] perspective-origin-bottom-left"
+            className=" mt-24 justify-center flex perspective-[300px] perspective-origin-bottom-left "
+            onClick={nextSlide}
             ref={slider_ref}
           >
             {images.map((img, i) => (
               <div
-                className="absolute  w-5/6 md:w-3/4 xl:w-1/3  border rounded-xl overflow-hidden bg-black"
-                style={{
-                  transform: "translate3d(-50%, -50%, 0)",
-                }}
+                className="absolute border rounded-xl bg-black overflow-hidden"
                 ref={(el) => {
                   card_ref.current.push(el);
                 }}
                 key={i}
               >
-                <img height={200} width={200} src={img.src} alt={img.alt} />
+                <img src={img.src} alt={img.alt} />
               </div>
             ))}
+          </div>
+        </div>
+        <div className=" items-center content-center justify-center max-w-2xl">
+          <div className="text-center mt-12 ">
+            <div className="w-full font-bold text-2xl mb-4">el.subTitle</div>
+            <div className="text-center font-thin mx-12">el.content</div>
           </div>
         </div>
       </div>

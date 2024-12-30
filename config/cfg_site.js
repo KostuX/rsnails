@@ -4,27 +4,33 @@ export const cfg_site = {
   theme_secondary_light: "#1e00ff",
   theme_secondary_dark: "#ff0000",
   navItems: [
+    { label: "Namai", href: "/" },
     {
       label: "Paslaugos",
-      href: "/",
+      href: "/paslaugos",
     },
     {
       label: "Galerija",
-      href: "/",
+      href: "/galerija",
     },
     {
       label: "Susisiekti",
-      href: "/",
+      href: "/susisiekti",
     },
-   
   ],
   navMenuItems: [
+    { label: "Namai", href: "/" },
     {
-      label: "Profile",
-      href: "#",
+      label: "Paslaugos",
+      href: "/paslaugos",
     },
-   
+    {
+      label: "Galerija",
+      href: "/galerija",
+    },
+    {
+      label: "Susisiekti",
+      href: "/susisiekti",
+    },
   ],
-
- 
 };
