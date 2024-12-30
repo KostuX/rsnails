@@ -1,33 +1,51 @@
 import React from "react";
-import GoogleMapReact from "google-map-react";
+import { env } from "process";
+import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 
-const AnyReactComponent = ({ text }) => (
-  <div className="text-black font-lg">
-    {text}
-    <div className="bg-black">.</div>
-  </div>
-);
+const containerStyle = {
+  width: "400px",
+  height: "400px",
+};
 
-export default function SimpleMap() {
-  const defaultProps = {
-    center: {
-      lat: 54.8985,
-      lng: 23.9036,
-    },
-    zoom: 15,
-  };
+const center = {
+  lat: 54.8985,
+  lng: 23.9036,
+};
 
-  let googleKey = "AIzaSyBL8eEeLOenEzeDk_4jMUx-C45KGtNrDfM";
+function MyComponent() {
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey: env.GOOGLE_MAP_API_KEY,
+  });
 
-  return (
-    <div className="mr-24 w-[50vh] h-[50vh]">
-      <GoogleMapReact
-        bootstrapURLKeys={{ key: googleKey }}
-        defaultCenter={defaultProps.center}
-        defaultZoom={defaultProps.zoom}
-      >
-        <AnyReactComponent lat={54.8985} lng={23.9036} text="RS Nails" />
-      </GoogleMapReact>
-    </div>
+  const [map, setMap] = React.useState(null);
+  const [zoom, setZoom] = React.useState(13);
+
+  const onLoad = React.useCallback(function callback(map) {
+    const bounds = new window.google.maps.LatLngBounds(center);
+    map.fitBounds(bounds);
+
+    setMap(map);
+  }, []);
+
+  const onUnmount = React.useCallback(function callback(map) {
+    setMap(null);
+  }, []);
+
+  return isLoaded ? (
+    <GoogleMap
+      mapContainerStyle={containerStyle}
+      center={center}
+      zoom={zoom}
+      onLoad={onLoad}
+      onUnmount={onUnmount}
+    >
+      {/* Child components, such as markers, info windows, etc. */}
+      <div className="bg-red-600">text</div>
+    </GoogleMap>
+  ) : (
+    <></>
   );
 }
+
+export default React.memo(MyComponent);

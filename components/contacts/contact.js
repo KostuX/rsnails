@@ -2,7 +2,8 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-import SimpleMap from "./Map2";
+
+import SimpleMap from "./Map";
 
 import ComponentLayout from "../../layouts/components";
 
@@ -82,7 +83,7 @@ export default function Contact(cfg) {
           <div className="mt-4">{config.siteConfig.contact.address}</div>
         </div>
       ),
-      img: <SimpleMap />,
+      img: <></>,
     },
   };
 

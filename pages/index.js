@@ -7,6 +7,7 @@ import Gallery from "../components/index/gallery";
 import Contact from "../components/contacts/contact";
 import { useEffect } from "react";
 import config_all from "../config/config";
+import Map from "../components/contacts/Map";
 
 export default function Home() {
   const config = config_all();
@@ -16,6 +17,7 @@ export default function Home() {
   }, []);
   return (
     <DefaultLayout>
+      <Map/>
       <Intro config={config} />
       <Intro2 config={config} />
       <Block2 config={config} />
