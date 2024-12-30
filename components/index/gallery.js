@@ -7,7 +7,8 @@ gsap.registerPlugin(CustomEase);
 import { useGSAP } from "@gsap/react";
 import { useRef, useEffect, useState } from "react";
 
-export default function Gallery() {
+export default function Gallery(cfg) {
+  const config = cfg.config
   let images = [
     { src: "./gallery/1.png", alt: "img" },
     { src: "./gallery/2.png", alt: "img" },

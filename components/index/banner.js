@@ -1,25 +1,23 @@
 import { Button } from "@nextui-org/react";
-import { Text } from "@nextui-org/react";
-import splitText from "../../utils/textSplit";
+
 import {
   ParallaxBanner,
-  ParallaxBannerLayer,
+ 
   ParallaxProvider,
 } from "react-scroll-parallax";
 
 import { Finger_Paint } from "next/font/google";
 const kranky = Finger_Paint({ weight: "400", subsets: ["latin"] });
 
-import { useEffect, useRef, useState } from "react";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Banner() {
-  const background = {
-    // image:'https://s3-us-west-2.amazonaws.com/s.cdpn.io/105988/banner-background.jpg',
+export default function Banner(cfg) {
+  let config  = cfg.config
+  const background = {   
     image: "./bg/bg.jpg",
     translateY: [0, 50],
     opacity: [1, 0.3],
@@ -36,12 +34,12 @@ export default function Banner() {
       <div className="mt-24 sm:mt-56  text-center grid flex items-center justify-center ">
         <div>
           <h1
-            className={`text-7xl sm:text-9xl font-bold ${kranky.className} bg-gradient-to-r from-blue-100 via-yellow-200 to-indigo-200 text-transparent bg-clip-text `}
+            className={`text-7xl sm:text-9xl font-bold ${config.fonts.title.font} bg-gradient-to-r from-blue-100 via-yellow-200 to-indigo-200 text-transparent bg-clip-text `}
           >
-            RS Nails
+            {config.siteConfig.title}
           </h1>
           <h5
-            className={`bg-gradient-to-r from-blue-200 via-red-200 to-indigo-200 inline-block text-transparent bg-clip-text  text-xl mt-12 ${kranky.className} sm:mt-12`}
+            className={`bg-gradient-to-r from-blue-200 via-red-200 to-indigo-200 inline-block text-transparent bg-clip-text  text-xl mt-12 ${config.fonts.title.font} sm:mt-12`}
           >
             Nuspalvink savo pasaulį.
           </h5>
@@ -67,30 +65,31 @@ export default function Banner() {
     ),
   };
 
+  let btn_decor="mx-4  shadow-lg max-w-[24vh]"
   const buttons = {
     children: (
-      <div className="">
-        <div className="mt-[75vh]  bottom-0 grid grid-cols-3 hidden">
+      <div className="flex justify-center">
+        <div className="mt-[75vh]  bottom-0 grid grid-cols-3 ">
         <Button
-            className="mx-4 bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg max-w-[24vh]"
+            className={`${ btn_decor}`}
             radius="full"
             size="sm"
           >
-            Paslaugos
+            Susiskambinam
           </Button>
           <Button
-            className="mx-4 bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+           className={`${ btn_decor}`}
             radius="full"
             size="sm"
           >
-            Galerija
+            Susirasom
           </Button>
           <Button
-            className="mx-4 bg-gradient-to-br from-yellow-500 to-pink-500 text-white shadow-lg "
+            className={`${ btn_decor}`}
             radius="full"
             size="sm"
           >
-            Susisiekti
+            Susitinkam
           </Button>
          
         </div>

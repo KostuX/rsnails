@@ -1,6 +1,13 @@
+
+
 export const cfg_site = {
   title: "RS Nails",
   year: "2024",
+  contact:{
+phone:"+370 000 00000",
+email: "email@email.lt",
+address:"Address"
+  },
   theme_secondary_light: "#1e00ff",
   theme_secondary_dark: "#ff0000",
   navItems: [

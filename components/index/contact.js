@@ -1,9 +1,11 @@
+
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import animateTitle from "../../utils/animateTitle";
 import ComponentLayout from "../../layouts/components";
-export default function Contact() {
+export default function Contact(cfg) {
+  const config = cfg.config
   const subTitle = useRef();
   const content = useRef();
   const img = useRef();
@@ -62,11 +64,16 @@ export default function Contact() {
   });
 
   let props = {
+    config:config,
     leftSide: true,
     elements: {
       title: "Susisiekti",
-      subTitle: <div ref={subTitle}>Kontaktai</div>,
-      content: <div ref={content}>emai, addresas, mob.</div>,
+      subTitle: <div className={`${config.fonts.subTitle.font} `}ref={subTitle}>Kontaktai</div>,
+      content: <div className="mt-12" ref={content}>
+        <div className="mt-4">{config.siteConfig.contact.phone} </div>
+        <div className="mt-4">{config.siteConfig.contact.email}</div>
+        <div className="mt-4">{config.siteConfig.contact.address}</div>
+      </div>,
       img: <>zemelapis</>,
     },
   };

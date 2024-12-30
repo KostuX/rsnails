@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import animateTitle from "../../utils/animateTitle";
 import ComponentLayout from "../../layouts/components";
-export default function Kvalifikuoti() {
+export default function Block2(cfg) {
+  const config = cfg.config
   const subTitle = useRef();
   const content = useRef();
   const img = useRef();
@@ -62,6 +62,7 @@ export default function Kvalifikuoti() {
   });
 
   let props = {
+    config:config,
     leftSide: false,
     elements: {
       title: "Apie Mus",

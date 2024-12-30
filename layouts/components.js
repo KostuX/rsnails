@@ -2,6 +2,8 @@ import animateTitle from "../utils/animateTitle";
 export default function ComponentLayout(props) {
   let el = props.props.elements;
   let left = props.props.leftSide;
+let config = props.props.config
+ 
 
   let imageComp = (
     <div className="grid justify-center content-center mt-12 ">{el.img}</div>
@@ -10,10 +12,10 @@ export default function ComponentLayout(props) {
   let textComp = (
     <div className=" items-center content-center justify-center max-w-2xl">
       <div className="text-center mt-12 ">
-        <div className="w-full font-bold text-2xl sm:text-4xl mb-4">
+        <div className={`w-full mb-4 ${config.fonts.subTitle.size}`}>
           {el.subTitle}
         </div>
-        <div className="text-center font-thin text-xl sm:text-2xl mx-12">
+        <div className={`text-center mx-12 ${config.fonts.text.size} ${config.fonts.text.font} `}>
           {el.content}
         </div>
       </div>
@@ -26,7 +28,7 @@ export default function ComponentLayout(props) {
           left ? "text-left" : "text-right"
         } mx-12`}
       >
-        {animateTitle(el.title)}
+        {animateTitle(el.title,left)}
       </div >
       <div className="grid sm:grid-cols-2 grid-cols-1 overflow-hidden ">
         {left ? textComp : imageComp}

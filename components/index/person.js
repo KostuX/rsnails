@@ -5,7 +5,8 @@ import ComponentLayout from "../../layouts/components";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-export default function Person() {
+export default function Person(cfg) {
+  const config = cfg.config
   const subTitle = useRef();
   const content = useRef();
   const img = useRef();
@@ -64,6 +65,7 @@ export default function Person() {
   });
 
   let props = {
+    config:config,
     leftSide: true,
     elements: {
       title: "Apie Mus",

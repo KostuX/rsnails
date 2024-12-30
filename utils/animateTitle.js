@@ -30,11 +30,13 @@ export default function animateTitle(txt, left = true) {
 
   function progressBar() {
     return (
-      <div className="bg-red-100" ref={progress}>
-        <div className="bg-gradient-to-r from-red-600 via-blue-100 to-red-100 h-1  rounded-full   "></div>
-      </div>
+      <div className="bg-red-100 h-1 rounded-full "ref={progress}></div>
+    
     );
   }
+
+ 
+
 
   const progress = useRef();
   const chars = useRef([]);
@@ -60,14 +62,16 @@ export default function animateTitle(txt, left = true) {
         },
       }
     );
+
+   
     gsap.fromTo(
       progress.current,
       {
-        width: 0,
+        xPercent: left?150:-150,       
       },
       {
         delay: 0.7,
-        width: 1000,
+        xPercent: 0,
         scrollTrigger: {
           trigger: progress.current,
           toggleActions: "restart restart restart reverse",
@@ -78,7 +82,7 @@ export default function animateTitle(txt, left = true) {
 
   return (
     <div className=" justify-center ">
-      <div className=" mt-24 w-5/6 ">
+      <div className=" mt-24 ">
         {title()}
         {progressBar()}
       </div>
