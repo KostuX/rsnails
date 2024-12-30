@@ -4,7 +4,7 @@ export default function ComponentLayout(props) {
   let left = props.props.leftSide;
   let config = props.props.config;
 
-  let imageComp = <div className="grid  mt-12 ">{el.img}</div>;
+  let imageComp = <div className="grid justify-center mt-12 ">{el.img}</div>;
 
   let textComp = (
     <div className=" items-center content-center justify-center max-w-2xl">
@@ -13,7 +13,7 @@ export default function ComponentLayout(props) {
           {el.subTitle}
         </div>
         <div
-          className={`text-center mx-12 ${config.fonts.text.size} ${config.fonts.text.font} `}
+          className={`text-center mx-12  ${config.fonts.text.size} ${config.fonts.text.font} `}
         >
           {el.content}
         </div>
@@ -22,11 +22,7 @@ export default function ComponentLayout(props) {
   );
   return (
     <div className="" style={{ minHeight: "75vh" }}>
-      <div
-        className={`uppercase text-left ${
-          left ? "text-left" : "text-right"
-        } mx-12`}
-      >
+      <div className={`uppercase t ${left ? "text-left" : "text-right"} mx-12`}>
         {animateTitle(el.title, left)}
       </div>
       <div className="grid sm:grid-cols-2 grid-cols-1 overflow-hidden ">

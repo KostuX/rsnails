@@ -12,6 +12,7 @@
     "@gsap/react": "^2.1.1",
     "@nextui-org/navbar": "^2.0.30",
     "@nextui-org/react": "^2.3.6",
+    "@react-google-maps/api": "^2.20.5",
     "google-map-react": "^2.2.1",
     "gsap": "^3.12.5",
     "next": "^14.2.18",

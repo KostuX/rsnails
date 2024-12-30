@@ -15,7 +15,7 @@ export default function animateTitle(txt, left = true) {
       <div className="overflow-hidden">
         {textArr.map((char, i) => (
           <div
-            className={`transition translate-y-4 inline-block duration-1000 ease-in-out ${titleFont.className} text-4xl `}
+            className={` transition translate-y-4 inline-block duration-1000 ease-in-out ${titleFont.className} text-2xl sm:text-6xl `}
             key={i}
             ref={(el) => {
               chars.current.push(el);
@@ -29,14 +29,8 @@ export default function animateTitle(txt, left = true) {
   }
 
   function progressBar() {
-    return (
-      <div className="bg-red-100 h-1 rounded-full "ref={progress}></div>
-    
-    );
+    return <div className="bg-red-100 h-1 rounded-full " ref={progress}></div>;
   }
-
- 
-
 
   const progress = useRef();
   const chars = useRef([]);
@@ -63,11 +57,10 @@ export default function animateTitle(txt, left = true) {
       }
     );
 
-   
     gsap.fromTo(
       progress.current,
       {
-        xPercent: left?150:-150,       
+        xPercent: left ? 150 : -150,
       },
       {
         delay: 0.7,
@@ -82,7 +75,7 @@ export default function animateTitle(txt, left = true) {
 
   return (
     <div className=" justify-center ">
-      <div className=" mt-24 ">
+      <div className="mt-24">
         {title()}
         {progressBar()}
       </div>

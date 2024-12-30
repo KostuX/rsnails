@@ -2,7 +2,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-import SimpleMap from "./map";
+import SimpleMap from "./Map2";
 
 import ComponentLayout from "../../layouts/components";
 

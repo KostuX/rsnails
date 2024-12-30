@@ -2,7 +2,7 @@ export default function Intro2(cfg) {
   const config = cfg.config;
   return (
     <div
-      className="sm:bg-[url('/bg/bg-btn.jpg')] bg-center bg-no-repeat flex justify-center"
+      className="sm:bg-[url('/bg/bg-btn.jpg')] bg-white bg-center bg-no-repeat flex justify-center"
       style={{ minHeight: "75vh" }}
     >
       <div

@@ -17,7 +17,7 @@ export default function SimpleMap() {
     zoom: 15,
   };
 
-  let googleKey = process.env.GOOGLE_MAP_API_KEY;
+  let googleKey = "AIzaSyBL8eEeLOenEzeDk_4jMUx-C45KGtNrDfM";
 
   return (
     <div className="mr-24 w-[50vh] h-[50vh]">
