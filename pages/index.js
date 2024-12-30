@@ -7,7 +7,7 @@ import Gallery from "../components/index/gallery";
 import Contact from "../components/contacts/contact";
 import { useEffect } from "react";
 import config_all from "../config/config";
-import Map from "../components/contacts/Map";
+import Map from "../components/contacts/map";
 
 export default function Home() {
   const config = config_all();

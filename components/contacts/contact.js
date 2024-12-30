@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 
-import SimpleMap from "./Map";
+import SimpleMap from "./map";
 
 import ComponentLayout from "../../layouts/components";
 
