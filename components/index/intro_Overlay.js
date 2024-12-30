@@ -1,16 +1,16 @@
-import Banner from "./banner";
+import Banner from "./intro_Banner";
 import splitText from "../../utils/textSplit";
 import React, { useRef } from "react";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-export default function Intro( cfg) {
-  let config  = cfg.config
+export default function Intro(cfg) {
+  let config = cfg.config;
 
   const main_div = useRef();
   const black_div = useRef();
-  const classic_div = useRef()
+  const classic_div = useRef();
   const banner_div = useRef();
   const init_name = useRef();
   const progress = useRef();
@@ -36,12 +36,21 @@ export default function Intro( cfg) {
         }
       );
 
-      gsap.fromTo(classic_div.current,{opacity:0},{opacity:1, duration:7})
+    gsap.fromTo(
+      classic_div.current,
+      { opacity: 0 },
+      { opacity: 1, duration: 7 }
+    );
   });
   return (
     <div className="h-screen w-screen " ref={main_div}>
       <div className="bg-black h-screen w-screen absolute  " ref={black_div}>
-      <div className="bg-[url('/bg/btq.jpg')] h-screen w-screen absolute  bg-cover" ref={classic_div}>  </div>
+        <div
+          className="bg-[url('/bg/btq.jpg')] h-screen w-screen absolute bg-cover"
+          ref={classic_div}
+        >
+          {" "}
+        </div>
         <h1
           className={`text-white text-center  content-center h-[100vh] ${config.fonts.title.size} ${config.fonts.title.font} grid justify-center content-center`}
           ref={init_name}
@@ -54,9 +63,8 @@ export default function Intro( cfg) {
         </h1>
       </div>
       <div className="banner  " ref={banner_div}>
-        <Banner config = {config}/>
+        <Banner config={config} />
       </div>
     </div>
-  
   );
 }

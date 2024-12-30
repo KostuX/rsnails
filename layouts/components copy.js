@@ -4,7 +4,9 @@ export default function ComponentLayout(props) {
   let left = props.props.leftSide;
   let config = props.props.config;
 
-  let imageComp = <div className="grid  mt-12 ">{el.img}</div>;
+  let imageComp = (
+    <div className="grid justify-center content-center mt-12 ">{el.img}</div>
+  );
 
   let textComp = (
     <div className=" items-center content-center justify-center max-w-2xl">
