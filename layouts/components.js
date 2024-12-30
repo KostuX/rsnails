@@ -20,15 +20,15 @@ export default function ComponentLayout(props) {
     </div>
   );
   return (
-    <div>
+    <div className="" style={{minHeight: "75vh"}}>
       <div
         className={`uppercase text-left ${
           left ? "text-left" : "text-right"
         } mx-12`}
       >
         {animateTitle(el.title)}
-      </div>
-      <div className="grid sm:grid-cols-2 grid-cols-1 overflow-hidden">
+      </div >
+      <div className="grid sm:grid-cols-2 grid-cols-1 overflow-hidden ">
         {left ? textComp : imageComp}
         {left ? imageComp : textComp}
       </div>

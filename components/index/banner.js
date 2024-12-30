@@ -69,22 +69,30 @@ export default function Banner() {
 
   const buttons = {
     children: (
-      <div className="flex justify-center">
-        <div className=" absolute  bottom-0 mb-56">
-          <Button
-            className="mx-4 bg-gradient-to-br from-yellow-500 to-pink-500 text-white shadow-lg "
+      <div className="">
+        <div className="mt-[75vh]  bottom-0 grid grid-cols-3 hidden">
+        <Button
+            className="mx-4 bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg max-w-[24vh]"
             radius="full"
-            size="lg"
+            size="sm"
           >
-            Susisiekti
+            Paslaugos
           </Button>
           <Button
             className="mx-4 bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
             radius="full"
-            size="lg"
+            size="sm"
           >
-            Paslaugos
+            Galerija
           </Button>
+          <Button
+            className="mx-4 bg-gradient-to-br from-yellow-500 to-pink-500 text-white shadow-lg "
+            radius="full"
+            size="sm"
+          >
+            Susisiekti
+          </Button>
+         
         </div>
       </div>
     ),

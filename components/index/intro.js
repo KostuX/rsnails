@@ -11,6 +11,7 @@ import { useGSAP } from "@gsap/react";
 export default function Intro() {
   const main_div = useRef();
   const black_div = useRef();
+  const classic_div = useRef()
   const banner_div = useRef();
   const init_name = useRef();
   const progress = useRef();
@@ -21,7 +22,7 @@ export default function Intro() {
       .fromTo(
         black_div.current,
         { ease: "back", opacity: 1, ease: "back.out" },
-        { yPercent: -100, duration: 0.5, opacity: 0 }
+        { xPercent: -100, duration: 0.2, opacity: 0 }
       )
       .fromTo(
         banner_div.current,
@@ -35,10 +36,13 @@ export default function Intro() {
           scale: 1,
         }
       );
+
+      gsap.fromTo(classic_div.current,{opacity:0},{opacity:1, duration:7})
   });
   return (
     <div className="h-screen w-screen " ref={main_div}>
       <div className="bg-black h-screen w-screen absolute  " ref={black_div}>
+      <div className="bg-[url('/bg/btq.jpg')] h-screen w-screen absolute  bg-cover" ref={classic_div}>  </div>
         <h1
           className={`text-white text-center  content-center h-[100vh]  text-4xl  sm:text-9xl ${finger_Paint.className} grid  justify-center content-center`}
           ref={init_name}
@@ -54,5 +58,6 @@ export default function Intro() {
         <Banner />
       </div>
     </div>
+  
   );
 }

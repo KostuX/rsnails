@@ -80,9 +80,9 @@ export default function Gallery() {
         {animateTitle("darbai", false)}
       </div>
       <div className="grid justify-center grid-cols-1 sm:grid-cols-2">
-        <div className="overflow-hidden h-[100vh]">
+        <div className="overflow-hidden sm:h-[100vh] h-[50vh] ">
           <div
-            className=" mt-24 justify-center flex perspective-[300px] perspective-origin-bottom-left "
+            className=" mt-24 justify-center flex perspective-[300px] perspective-origin-bottom-left  "
             onClick={nextSlide}
             ref={slider_ref}
           >
@@ -99,10 +99,16 @@ export default function Gallery() {
             ))}
           </div>
         </div>
-        <div className=" items-center content-center justify-center max-w-2xl">
-          <div className="text-center mt-12 ">
-            <div className="w-full font-bold text-2xl mb-4">el.subTitle</div>
-            <div className="text-center font-thin mx-12">el.content</div>
+        <div className=" items-center content-center justify-center max-w-2xl ">
+          <div className="text-center mt-12">
+            <div className="w-full font-bold text-2xl mb-4">Daugiau Rasite Cia</div>
+            <div className="text-center font-thin mx-12"> <Button
+            className="mx-4 bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+            radius="full"
+            size="lg"
+          >
+            Galerija
+          </Button></div>
           </div>
         </div>
       </div>

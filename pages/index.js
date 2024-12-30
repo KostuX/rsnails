@@ -1,5 +1,6 @@
 import DefaultLayout from "../layouts/default";
 import Intro from "../components/index/intro";
+import Intro2 from "../components/index/intro2";
 import Banner from "../components/index/banner";
 import Kvalifikuoti from "../components/index/block2";
 import Person from "../components/index/person";
@@ -14,6 +15,7 @@ export default function Home() {
   return (
     <DefaultLayout>
       <Intro />
+      <Intro2/>
       <Kvalifikuoti />
       <Person />
       <Gallery />

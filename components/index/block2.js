@@ -77,10 +77,9 @@ export default function Kvalifikuoti() {
       ),
       img: (
         <img
-          className="personal image"
+          className=" h-[30vh] w-[30vh]"
           src="/profile.jpg"
           alt="Profile Image"
-          style={{ height: "50vh", width: "50vh" }}
           ref={img}
         />
       ),
