@@ -1,4 +1,9 @@
 import { Button } from "@nextui-org/react";
+import { FcGoogle } from "react-icons/fc";
+import { TfiEmail } from "react-icons/tfi";
+import { LuPhoneCall } from "react-icons/lu";
+import { TbBrandGoogleMaps } from "react-icons/tb";
+import { useRouter } from 'next/router'
 
 import {
   ParallaxBanner,
@@ -16,7 +21,14 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Banner(cfg) {
+  const router = useRouter()
+
+   function openMap(){
+    const newWindow = window.open(config.siteConfig.contact.map, '_blank', 'noopener,noreferrer')
+    if (newWindow) newWindow.opener = null
+}
   let config  = cfg.config
+  console.log(config)
   const background = {   
     image: "./bg/bg.jpg",
     translateY: [0, 50],
@@ -65,31 +77,39 @@ export default function Banner(cfg) {
     ),
   };
 
-  let btn_decor="mx-4  shadow-lg max-w-[24vh]"
+  let btn_decor="mx-4  shadow-lg max-w-[24vh] bg-black bg-opacity-50 hover:bg-red-400"
   const buttons = {
     children: (
       <div className="flex justify-center">
         <div className="mt-[75vh]  bottom-0 grid grid-cols-3 ">
         <Button
-            className={`${ btn_decor}`}
+            className={`${ btn_decor} `}
             radius="full"
-            size="sm"
+            size="lg"
+            onPress={openMap}
           >
-            Susiskambinam
-          </Button>
+            <TbBrandGoogleMaps size={100}/>
+            <div className="">Rasti</div>
+                      </Button>
           <Button
            className={`${ btn_decor}`}
             radius="full"
-            size="sm"
+            size="lg"
+            onPress={() => router.push(`mailto:${config.siteConfig.contact.email}`)}
           >
-            Susirasom
+           <TfiEmail/>
+           <div>e-Pastas</div>
           </Button>
           <Button
             className={`${ btn_decor}`}
             radius="full"
-            size="sm"
+            size="lg"
+            onPress={() => router.push(`tel:${config.siteConfig.contact.phone}`)}
           >
-            Susitinkam
+            <LuPhoneCall/>
+            <div>Paskambint</div>
+
+          
           </Button>
          
         </div>

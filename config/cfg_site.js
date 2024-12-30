@@ -6,7 +6,10 @@ export const cfg_site = {
   contact:{
 phone:"+370 000 00000",
 email: "email@email.lt",
-address:"Address"
+address:"Address",
+map:
+"https://www.google.com/maps?saddr=My+Location&daddr=rsnails",
+
   },
   theme_secondary_light: "#1e00ff",
   theme_secondary_dark: "#ff0000",
