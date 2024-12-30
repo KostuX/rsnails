@@ -20,7 +20,7 @@ export default function ComponentLayout(props) {
     </div>
   );
   return (
-    <div className="h-screen">
+    <div>
       <div
         className={`uppercase text-left ${
           left ? "text-left" : "text-right"
