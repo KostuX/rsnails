@@ -33,7 +33,7 @@ export default function Gallery_Card(prop) {
         <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
           <h4 className="font-bold text-large" ref={title_ref}>{img.title}</h4>
           <p className="text-tiny uppercase font-bold" ref={description_ref}>{img.description}</p>
-          <small className="text-default-500">From: {img.price}</small>
+          <small className="text-default-500">Kaina Nuo:  {img.price}€</small>
 
 
         </CardHeader>

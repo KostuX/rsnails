@@ -18,6 +18,18 @@ export default function Gallery_Frame(cfg) {
     { src: "./gallery/3.png", alt: "img", title: "Title", description: "Description", price: 0 },
     { src: "./gallery/4.png", alt: "img", title: "Title", description: "Description", price: 0 },
     { src: "./gallery/5.png", alt: "img", title: "Title", description: "Description", price: 0 },
+    { src: "./gallery/1.png", alt: "img", title: "Title", description: "Description", price: 0 },
+    
+    { src: "./gallery/2.png", alt: "img", title: "Title", description: "Description", price: 0 },
+    { src: "./gallery/3.png", alt: "img", title: "Title", description: "Description", price: 0 },
+    { src: "./gallery/4.png", alt: "img", title: "Title", description: "Description", price: 0 },
+    { src: "./gallery/5.png", alt: "img", title: "Title", description: "Description", price: 0 },
+    { src: "./gallery/1.png", alt: "img", title: "Title", description: "Description", price: 0 },
+    
+    { src: "./gallery/2.png", alt: "img", title: "Title", description: "Description", price: 0 },
+    { src: "./gallery/3.png", alt: "img", title: "Title", description: "Description", price: 0 },
+    { src: "./gallery/4.png", alt: "img", title: "Title", description: "Description", price: 0 },
+    { src: "./gallery/5.png", alt: "img", title: "Title", description: "Description", price: 0 },
 
     
   ];
@@ -52,14 +64,14 @@ export default function Gallery_Frame(cfg) {
     })
 
 
-    for (let i = 1; i < images.length; i++) {
+    for (let i = 0; i < images.length; i++) {
 
       let item = document.createElement("div")
       item.className = "item"
 
       let img = document.createElement("img")
 
-      img.src = `./gallery/${i}.png`
+      img.src = `${images[i].src}`
 
       item.appendChild(img)
       gallery.appendChild(item)
@@ -74,7 +86,7 @@ export default function Gallery_Frame(cfg) {
       gsap.set(item, {
         rotateY: 90,
         rotateZ: index * angleIncrement - 90,
-        transformOrigin: "50% 300px"
+        transformOrigin: "100% 300px"
 
       })
       item.addEventListener("mouseover", function (){
