@@ -5,6 +5,9 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+gsap.registerPlugin(useGSAP);
+
+gsap.registerPlugin(ScrollTrigger)
 
 //https://www.youtube.com/watch?v=v0UoqZJRP5M&t=349s
 
@@ -98,35 +101,14 @@ export default function Gallery_Frame(cfg) {
           y:10,
           z:10,
           ease: "power2.out",
-          duration:0.5
+          duration:0.5, 
+        
         })
+
+       
   
       })
-
-    ScrollTrigger.create({
-      trigger:"body",
-      start:"top top",
-      end:"bottom bottom",
-      scrub:2,
-      onRefresh: setupRotation,
-      onUpdate: (self)=>{
-        const rotationProgress = self.progress * 360 * 1
-
-        items.forEach((item, index)=>{
-          const currentAngle = angleIncrement - 90 + rotationProgress
-
-          gsap.to(item,{
-            rotationZ: currentAngle,
-            ease:"power3.out",
-            duration:1,
-            overwrite:"auto"
-          })
-        })
-      }
-
-
-
-    })
+    
 
       item.addEventListener("mouseout", function (){
         previewImage.scr = images[0].src
@@ -144,6 +126,38 @@ export default function Gallery_Frame(cfg) {
 
 
     })
+
+
+   
+
+    ScrollTrigger.create({
+      
+      trigger:"body",
+      start:"top top",
+      end:"bottom bottom",
+      scrub:2,
+      onRefresh: setupRotation,
+      onUpdate: (self)=>{
+        const rotationProgress = self.progress * 360 * 1
+
+     
+
+        items.forEach((item, index)=>{
+          const currentAngle = angleIncrement - 90 + rotationProgress
+
+          gsap.to(item,{
+            rotationZ: currentAngle,
+            ease:"power3.out",
+            duration:1,
+            overwrite:"auto"
+          })
+        })
+      }
+
+
+
+    })
+
 function setupRotation(){}
   
 
