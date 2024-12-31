@@ -2,8 +2,8 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-
-import SimpleMap from "./map";
+import NextLink from "next/link";
+import Map from "./map";
 
 import ComponentLayout from "../../layouts/components";
 
@@ -78,12 +78,37 @@ export default function Contact(cfg) {
       ),
       content: (
         <div className="mt-12" ref={content}>
-          <div className="mt-4">{config.siteConfig.contact.phone} </div>
-          <div className="mt-4">{config.siteConfig.contact.email}</div>
-          <div className="mt-4">{config.siteConfig.contact.address}</div>
+          <div  className="mt-4">
+          <NextLink         
+            key="phone link"
+            href={`mailto:${config.siteConfig.contact.phone}`}            
+          >
+            <div>{config.siteConfig.contact.phone}</div>
+          </NextLink>
+          </div>
+        
+          <div  className="mt-4">
+           <NextLink
+           className="mt-4"
+            key="email link"
+            href={`mailto:${config.siteConfig.contact.email}`}
+          >
+            <div>{config.siteConfig.contact.email}</div>
+          </NextLink>
+      </div>
+
+      <div  className="mt-4">
+          <NextLink
+          className="mt-4"
+            key="email link"
+            href={`mailto:${config.siteConfig.contact.address}`}
+          >
+            <div>{config.siteConfig.contact.address}</div>
+          </NextLink>
+          </div>
         </div>
       ),
-      img: <></>,
+      img: <Map/>,
     },
   };
 

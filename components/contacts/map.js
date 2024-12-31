@@ -1,6 +1,6 @@
 import React from "react";
 import { env } from "process";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader,LoadScript } from "@react-google-maps/api";
 
 const containerStyle = {
   width: "400px",
@@ -15,34 +15,33 @@ const center = {
 function MyComponent() {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: env.GOOGLE_MAP_API_KEY,
+    googleMapsApiKey: "AIzaSyBL8eEeLOenEzeDk_4jMUx-C45KGtNrDfM",
   });
 
   const [map, setMap] = React.useState(null);
-  const [zoom, setZoom] = React.useState(13);
+ 
 
   const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
-
     setMap(map);
   }, []);
 
-  const onUnmount = React.useCallback(function callback(map) {
+  const onUnmount = React.useCallback(function callback(map) {   
     setMap(null);
   }, []);
 
   return isLoaded ? (
+   
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
-      zoom={zoom}
+      zoom={15}
       onLoad={onLoad}
       onUnmount={onUnmount}
     >
       {/* Child components, such as markers, info windows, etc. */}
       <div className="bg-red-600">text</div>
     </GoogleMap>
+  
   ) : (
     <></>
   );

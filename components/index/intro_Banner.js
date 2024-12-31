@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 
 import {
   ParallaxBanner,
- 
+
   ParallaxProvider,
 } from "react-scroll-parallax";
 
@@ -23,13 +23,13 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Banner(cfg) {
   const router = useRouter()
 
-   function openMap(){
+  function openMap() {
     const newWindow = window.open(config.siteConfig.contact.map, '_blank', 'noopener,noreferrer')
     if (newWindow) newWindow.opener = null
-}
-  let config  = cfg.config
-  console.log(config)
-  const background = {   
+  }
+  let config = cfg.config
+ 
+  const background = {
     image: "./bg/bg.jpg",
     translateY: [0, 50],
     opacity: [1, 0.3],
@@ -51,7 +51,7 @@ export default function Banner(cfg) {
             {config.siteConfig.title}
           </h1>
           <h5
-            className={`bg-gradient-to-r from-blue-200 via-red-200 to-indigo-200 inline-block text-transparent bg-clip-text  text-xl mt-12 ${config.fonts.title.font} sm:mt-12`}
+            className={`bg-gradient-to-r from-yellow-500 via-blue-500 to-indigo-100 inline-block text-transparent bg-clip-text  text-xl mt-12 ${config.fonts.title.font} sm:mt-12`}
           >
             Nuspalvink savo pasaulį.
           </h5>
@@ -77,42 +77,46 @@ export default function Banner(cfg) {
     ),
   };
 
-  let btn_decor="mx-4  shadow-lg max-w-[24vh] bg-black bg-opacity-50 hover:bg-red-400"
+  let btn_decor = "mx-4  shadow-lg max-w-[24vh] hover:bg-black hover:bg-opacity-70 bg-opacity-90 bg-red-400"
   const buttons = {
     children: (
       <div className="flex justify-center">
         <div className="mt-[75vh]  bottom-0 grid grid-cols-3 ">
-        <Button
-            className={`${ btn_decor} `}
+          <Button
+            className={`${btn_decor} `}
             radius="full"
-            size="lg"
+            size="sm"
+            
+            
             onPress={openMap}
           >
-            <TbBrandGoogleMaps size={100}/>
-            <div className="">Rasti</div>
-                      </Button>
+            <TbBrandGoogleMaps size={100} />
+            <div className="hidden sm:flex">Rasti</div>
+          </Button>
           <Button
-           className={`${ btn_decor}`}
+            className={`${btn_decor}`}
             radius="full"
-            size="lg"
+            size="sm"
             onPress={() => router.push(`mailto:${config.siteConfig.contact.email}`)}
           >
-           <TfiEmail/>
-           <div>e-Pastas</div>
+            <TfiEmail />
+            <div className="hidden sm:flex">e-Pastas</div>
           </Button>
           <Button
-            className={`${ btn_decor}`}
+            className={`${btn_decor}`}
             radius="full"
-            size="lg"
+            size="sm"
             onPress={() => router.push(`tel:${config.siteConfig.contact.phone}`)}
           >
-            <LuPhoneCall/>
-            <div>Paskambint</div>
+            <LuPhoneCall />
+            <div className="hidden sm:flex">Paskambint</div>
 
-          
+
           </Button>
          
+
         </div>
+        
       </div>
     ),
   };

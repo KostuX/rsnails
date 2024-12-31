@@ -1,5 +1,6 @@
 import { Button, Divider } from "@nextui-org/react";
 import animateTitle from "../../utils/animateTitle";
+import { useRouter } from 'next/router'
 
 import gsap from "gsap";
 import CustomEase from "gsap/dist/CustomEase";
@@ -8,6 +9,7 @@ import { useGSAP } from "@gsap/react";
 import { useRef, useEffect, useState } from "react";
 
 export default function Gallery(cfg) {
+  const router = useRouter()
   const config = cfg.config
   let images = [
     { src: "./gallery/1.png", alt: "img" },
@@ -76,7 +78,7 @@ export default function Gallery(cfg) {
 
   return (
     <div className="sm:h-screen " ref={main_div}>
-      <div className=" uppercase text-right ">
+      <div className=" uppercase text-right mx-12">
         {" "}
         {animateTitle("darbai", false)}
       </div>
@@ -103,10 +105,12 @@ export default function Gallery(cfg) {
         <div className=" items-center content-center justify-center max-w-2xl ">
           <div className="text-center mt-12">
             <div className="w-full font-bold text-2xl mb-4">Daugiau Rasite Cia</div>
-            <div className="text-center font-thin mx-12"> <Button
+            <div className="text-center font-thin mx-12"> 
+              <Button
             className="mx-4 bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
             radius="full"
             size="lg"
+            onPress={() => router.push(`/gallery`)}
           >
             Galerija
           </Button></div>
