@@ -1,11 +1,14 @@
 import CommingSoon from "../components/commingSoon";
 import DefaultLayout from "../layouts/default";
-import Gallery from "../components/paslaugos/paslaugos";
-export default function gallery() {
-  //https://www.youtube.com/watch?v=v0UoqZJRP5M&t=349s
+import Gallery_Frame from "../components/gallery/gallery_Frame";
+import config_all from "../config/config";
+export default function gallery(cfg) {
+  const config = config_all();
+ 
+
   return (
     <DefaultLayout>
-      <CommingSoon />
+      <Gallery_Frame />
     </DefaultLayout>
   );
 }

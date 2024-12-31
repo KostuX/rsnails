@@ -1,5 +1,4 @@
 import { Button } from "@nextui-org/react";
-import { FcGoogle } from "react-icons/fc";
 import { TfiEmail } from "react-icons/tfi";
 import { LuPhoneCall } from "react-icons/lu";
 import { TbBrandGoogleMaps } from "react-icons/tb";
@@ -7,12 +6,8 @@ import { useRouter } from 'next/router'
 
 import {
   ParallaxBanner,
-
   ParallaxProvider,
 } from "react-scroll-parallax";
-
-import { Finger_Paint } from "next/font/google";
-const kranky = Finger_Paint({ weight: "400", subsets: ["latin"] });
 
 
 import gsap from "gsap";
@@ -85,9 +80,7 @@ export default function Banner(cfg) {
           <Button
             className={`${btn_decor} `}
             radius="full"
-            size="sm"
-            
-            
+            size="sm"            
             onPress={openMap}
           >
             <TbBrandGoogleMaps size={100} />
@@ -99,7 +92,7 @@ export default function Banner(cfg) {
             size="sm"
             onPress={() => router.push(`mailto:${config.siteConfig.contact.email}`)}
           >
-            <TfiEmail />
+            <TfiEmail size={100} />
             <div className="hidden sm:flex">e-Pastas</div>
           </Button>
           <Button
@@ -108,7 +101,7 @@ export default function Banner(cfg) {
             size="sm"
             onPress={() => router.push(`tel:${config.siteConfig.contact.phone}`)}
           >
-            <LuPhoneCall />
+            <LuPhoneCall size={100} />
             <div className="hidden sm:flex">Paskambint</div>
 
 

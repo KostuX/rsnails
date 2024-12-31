@@ -21,7 +21,7 @@ map:
     },
     {
       label: "Galerija",
-      href: "/galerija",
+      href: "/gallery",
     },
     {
       label: "Susisiekti",
@@ -36,7 +36,7 @@ map:
     },
     {
       label: "Galerija",
-      href: "/galerija",
+      href: "/gallery",
     },
     {
       label: "Susisiekti",
