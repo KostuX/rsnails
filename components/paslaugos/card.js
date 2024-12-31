@@ -13,9 +13,9 @@ export default function Gallery_Card(prop) {
 
   useGSAP(() => {
     gsap.fromTo(card_ref.current, { opacity: 0, y: 100 }, { opacity: 1, y: 0, duration: Math.random() * 3,  scrollTrigger: { trigger: card_ref.current} })
-    gsap.fromTo(img_ref.current, { scale: Math.random() }, { scale: 1, duration: Math.random() })
-    gsap.fromTo(title_ref.current, { x: -100 }, { x: 0, duration: Math.random() })
-    gsap.fromTo(description_ref.current, { y: -100 }, { y: 0, duration: Math.random() })
+    gsap.fromTo(img_ref.current, { opacity: 0, scale: Math.random() }, { scale: 1,opacity:1 ,duration: Math.random(),scrollTrigger: { trigger: img_ref.current} })
+    gsap.fromTo(title_ref.current, {opacity:0, x: -100 }, { x: 0,opacity:1, duration: Math.random() ,scrollTrigger: { trigger: title_ref.current}})
+    gsap.fromTo(description_ref.current, { opacity:0,y: -100 }, { opacity:1,y: 0, duration: Math.random(),scrollTrigger: { trigger: description_ref.current} })
   })
   return (
     <div ref={card_ref}>

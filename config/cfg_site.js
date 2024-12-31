@@ -14,7 +14,7 @@ map:
   theme_secondary_light: "#1e00ff",
   theme_secondary_dark: "#ff0000",
   navItems: [
-    { label: "Namai", href: "/" },
+    { label: "Pagrindinis", href: "/" },
     {
       label: "Paslaugos",
       href: "/paslaugos",
@@ -29,7 +29,7 @@ map:
     },
   ],
   navMenuItems: [
-    { label: "Namai", href: "/" },
+    { label: "Pagrindinis", href: "/" },
     {
       label: "Paslaugos",
       href: "/paslaugos",
