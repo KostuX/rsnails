@@ -1,10 +1,11 @@
 import ImageFrame from "./image_Frame"
 import config_all from "../../config/config";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import gsap from "gsap";
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import { Button } from "@nextui-org/react";
 gsap.registerPlugin(useGSAP);
 
 gsap.registerPlugin(ScrollTrigger)
@@ -13,6 +14,8 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function Gallery_Frame(cfg) {
   const config = config_all();
+  const [displayImageIndex, setDisplayImageIndex] = useState(0)
+
 
   let images = [
     { src: "./gallery/1.png", alt: "img", title: "Title", description: "Description", price: 0 },
@@ -38,7 +41,7 @@ export default function Gallery_Frame(cfg) {
   ];
 
   useGSAP(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    
     const gallery = document.querySelector(".gallery")
     const previewImage = document.querySelector(".preview-img img")
 
@@ -95,6 +98,7 @@ export default function Gallery_Frame(cfg) {
       item.addEventListener("mouseover", function (){
         const imageInsideItem = item.querySelector("img")
         previewImage.src = imageInsideItem.src
+        setDisplayImageIndex(index)
 
         gsap.set(item,{
           x:10,
@@ -111,7 +115,7 @@ export default function Gallery_Frame(cfg) {
     
 
       item.addEventListener("mouseout", function (){
-        previewImage.scr = images[0].src
+        previewImage.scr = images[displayImageIndex].src
 
         gsap.set(item,{
           x:0,
@@ -139,10 +143,11 @@ export default function Gallery_Frame(cfg) {
       onRefresh: setupRotation,
       onUpdate: (self)=>{
         const rotationProgress = self.progress * 360 * 1
-
+        const items = document.querySelectorAll(".item")
      
 
         items.forEach((item, index)=>{
+         const angleIncrement = index * angleIncrement - 90
           const currentAngle = angleIncrement - 90 + rotationProgress
 
           gsap.to(item,{
@@ -159,19 +164,44 @@ export default function Gallery_Frame(cfg) {
     })
 
 function setupRotation(){}
+
   
 
 
   })
 
 
+  function spin(forward = true){
+    const items = document.querySelectorAll(".item")
+    const previewImage = document.querySelector(".preview-img img")
+    const numberOfItems =  items.length
+    const angle = (360 / numberOfItems)
+
+    const nextItemToDisplay = (forward ? displayImageIndex+1 : displayImageIndex-1) % items.length
+    setDisplayImageIndex(nextItemToDisplay)
+    const spinTo = forward ? `+=${angle}` : `-=${angle}`   
+  
+    previewImage.scr = images[nextItemToDisplay].src
+   
+    items.forEach((item, index)=>{     
+      gsap.to(item,{
+        rotationZ: spinTo,
+        ease:"power3.out",
+        duration:1,
+        overwrite:"auto"
+      })
+    })
+  
+  }
   return (<div className="h-screen">
     <div className="preview-img">
-      <img src={images[0].src} alt={images[0].alt} />
+      <img src={images[displayImageIndex].src} alt={images[displayImageIndex].alt} />
     </div>
 
     <div className="container">
       <div className="gallery"></div>
     </div>
+    <Button size="lg" onPress={()=>{spin(true)}}> {"<"} </Button>
+    <Button size="lg" onPress={()=>{spin(false)}}> {">"} </Button>
   </div>)
 }
