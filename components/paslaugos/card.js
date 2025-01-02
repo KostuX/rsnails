@@ -23,17 +23,17 @@ export default function Gallery_Card(prop) {
 
         <CardBody className="overflow-visible py-2  justify-center grid">
           <Image
-            alt={`${img.alt}`}
+            alt={`${img?.alt}`}
             className="object-cover rounded-xl "
-            src={`${img.src}`}
+            src={`${img?.src}`}
             width={270}
             ref={img_ref}
           />
         </CardBody>
         <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-          <h4 className="font-bold text-large" ref={title_ref}>{img.title}</h4>
-          <p className="text-tiny uppercase font-bold" ref={description_ref}>{img.description}</p>
-          <small className="text-default-500">Kaina Nuo:  {img.price}€</small>
+          <h4 className="font-bold text-large" ref={title_ref}>{img?.title}</h4>
+          <p className="text-tiny uppercase font-bold" ref={description_ref}>{img?.description}</p>
+          <small className="text-default-500">Kaina Nuo:  {img?.price}€</small>
 
 
         </CardHeader>

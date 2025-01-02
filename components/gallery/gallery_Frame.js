@@ -1,6 +1,7 @@
 import ImageFrame from "./image_Frame"
 import config_all from "../../config/config";
 import { useEffect, useState } from "react";
+import Gallery_Card from "../paslaugos/card";
 
 import gsap from "gsap";
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
@@ -42,7 +43,7 @@ export default function Gallery_Frame(cfg) {
 
   useGSAP(() => {
 
-    document.body.style.overflow = 'hidden';
+   
 
     const gallery = document.querySelector(".gallery")
     const previewImage = document.querySelector(".preview-img img")
@@ -304,8 +305,11 @@ export default function Gallery_Frame(cfg) {
       <div className="gallery"></div>
     </div>
     <div className="preview-img ">
+      <Gallery_Card img={images[displayImageIndex]}></Gallery_Card>
+      {/*}
       <img src={images[displayImageIndex]?.src} alt={images[displayImageIndex]?.alt} />
       <div className=" text-center">{images[displayImageIndex]?.description}</div>
+      {*/}
     </div>
     <div className="mt-[85vh]  justify-center relevent h-screen w-screen ">
       <Button className="w-1/2 p-4" size="lg" onPress={() => { spin(true) }}> {"<"} </Button>
