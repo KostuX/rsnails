@@ -47,6 +47,7 @@ export default function Gallery_Frame(cfg) {
     const gallery = document.querySelector(".gallery")
     const previewImage = document.querySelector(".preview-img img")
 
+    
     document.addEventListener("mousemove", function (event) {
       let x = event.clientX;
       let y = event.clientY;
@@ -130,69 +131,24 @@ export default function Gallery_Frame(cfg) {
     let startX = 0;
     let startY = 0;
     let isDragging = false;
+    let lastDeltaX = 0;
+    
 
 
 
-    // mobile
- 
+    document.addEventListener('touchend', function () {
+      isDragging = false;
+    });
 
-    document.addEventListener('touchend', function() {
-      isDragging = false;     
-  });
+    document.addEventListener("mouseup", function () {
+      isDragging = false;
+    });
 
- 
-  document.addEventListener('touchcancel', function() {
-    isDragging = false;  
-  });
-
-  document.addEventListener('touchstart', (event) => {
-    startX = event.touches[0].clientX;
-    startY = event.touches[0].clientY;
-    isDragging = true; 
-
-
-  });
-
-  document.addEventListener('touchmove', function(event) {
-    if (isDragging) {        
-       
-        const touch = event.touches[0];
- 
-        const deltaX = touch.clientX - startX;
-        const deltaY = touch.clientY - startY;
-
-        const viewportHeight = window.innerHeight;
-        const upperHalf = (viewportHeight / 2 > touch.clientY)
-
-             console.log(viewportHeight/2, touch.clientY, upperHalf)
-        if (Math.abs(deltaX) > Math.abs(deltaY)) {
-
-          if (deltaX > 0) {
-
-            if (upperHalf) {
-              spin(true)
-            } else {
-              spin(false)
-            }
-
-          } else {
-            if (upperHalf) {
-              spin(false)
-            } else {
-              spin(true)
-            }
-
-          }
-        } else {
-          if (deltaY > 0) {
-            spin(true)
-          } else {
-            spin(false)
-          }
-        }
-    }
-});
-    // pc
+    document.addEventListener('touchstart', (event) => {
+      startX = event.touches[0].clientX;
+      startY = event.touches[0].clientY;
+      isDragging = true;
+    });
 
     document.addEventListener("mousedown", function (event) {
       startX = event.clientX;
@@ -201,7 +157,75 @@ export default function Gallery_Frame(cfg) {
     });
 
 
+    const moveEvent = ['touchmove', 'mousemove']
 
+    moveEvent.forEach(eventType => {
+      document.addEventListener(eventType, function (event) {
+        if (isDragging) {
+          let  touch = event
+
+          if( eventType === 'touchmove'){
+             touch = event?.touches[0] ;        
+          }  
+          
+          const deltaX = touch.clientX - startX;
+          const deltaY = touch.clientY - startY;
+
+       
+          let turnLeft = (deltaX - lastDeltaX) > 0
+
+
+  
+          const viewportHeight = window.innerHeight;
+          const upperHalf = (viewportHeight / 2 > touch.clientY)
+  
+  
+          if (Math.abs(lastDeltaX) > Math.abs(deltaY)) {
+  
+            if (turnLeft ) {
+  
+              if (upperHalf) {
+                spin(true)
+              } else {
+                spin(false)
+              }
+  
+            } else {
+              if (upperHalf) {
+                spin(false)
+              } else {
+                spin(true)
+              }
+  
+            }
+          } else {
+            if (deltaY > 0) {
+              spin(true)
+            } else {
+              spin(false)
+            }
+          }
+
+          lastDeltaX = deltaX
+        }
+
+        
+      
+      });
+      
+    });
+
+  
+
+
+
+
+    // pc
+
+ 
+
+
+/*
     document.addEventListener("mousemove", function (event) {
       if (isDragging) {
         const deltaX = event.clientX - startX;
@@ -238,15 +262,11 @@ export default function Gallery_Frame(cfg) {
       }
     });
 
-    document.addEventListener("mouseup", function () {
-      isDragging = false;
-    });
+    */
 
-    document.addEventListener("mouseleave", function () {
-      if (isDragging) {
-        isDragging = false;
-      }
-    });
+
+
+  
 
   })
 
@@ -260,7 +280,7 @@ export default function Gallery_Frame(cfg) {
     let nextItemToDisplay = ((forward ? displayImageIndex + 1 : displayImageIndex - 1 + images.length))
     nextItemToDisplay = nextItemToDisplay % images.length
 
- 
+
 
     setDisplayImageIndex(nextItemToDisplay)
     const spinTo = forward ? `+=${angle}` : `-=${angle}`
@@ -286,8 +306,8 @@ export default function Gallery_Frame(cfg) {
       <div className="gallery"></div>
     </div>
     <div className="mt-[85vh]  justify-center relevent h-screen w-screen ">
-    <Button className="w-1/2 p-4" size="lg" onPress={() => { spin(true) }}> {"<"} </Button>
-    <Button className="w-1/2  p-4" size="lg" onPress={() => { spin(false) }}> {">"} </Button>
+      <Button className="w-1/2 p-4" size="lg" onPress={() => { spin(true) }}> {"<"} </Button>
+      <Button className="w-1/2  p-4" size="lg" onPress={() => { spin(false) }}> {">"} </Button>
     </div>
   </div>)
 }
