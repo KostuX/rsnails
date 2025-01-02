@@ -71,9 +71,6 @@ export default function Gallery_Frame(cfg) {
 
 
     for (let i = 0; i < images.length; i++) {
-      
-      console.log(i)
-
       let item = document.createElement("div")
       item.className = "item"
 
@@ -111,9 +108,6 @@ export default function Gallery_Frame(cfg) {
           duration:0.5, 
         
         })
-
-       
-  
       })
     
 
@@ -127,49 +121,65 @@ export default function Gallery_Frame(cfg) {
           ease: "power2.out",
           duration:0.5
         })
-
-
       })
 
 
     })
+    let startX = 0;
+    let startY = 0;
+    let isDragging = false;
 
+    document.addEventListener("mousedown", function(event) {     
+      startX = event.clientX;
+      startY = event.clientY;
+      isDragging = true;
+  });
 
-   
+  document.addEventListener("mousemove", function(event) {
+    if (isDragging) {
+        const deltaX = event.clientX - startX;
+        const deltaY = event.clientY - startY;
 
-    ScrollTrigger.create({
-      
-      trigger:"body",
-      start:"top top",
-      end:"bottom bottom",
-      scrub:2,
-      onRefresh: setupRotation,
-      onUpdate: (self)=>{
-        const rotationProgress = self.progress * 360 * 1
-        const items = document.querySelectorAll(".item")
-     
+        const viewportHeight = window.innerHeight;
+        const upperHalf = (viewportHeight /2 > event.clientY)       
 
-        items.forEach((item, index)=>{
-         const angleIncrement = index * angleIncrement - 90
-          const currentAngle = angleIncrement - 90 + rotationProgress
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+       
+            if (deltaX > 0) {
 
-          gsap.to(item,{
-            rotationZ: currentAngle,
-            ease:"power3.out",
-            duration:1,
-            overwrite:"auto"
-          })
-        })
-      }
+              if(upperHalf){
+                spin(true)
+              }else{
+                spin(false)
+              }
+                   
+            } else {
+              if(upperHalf){
+                spin(false)
+              }else{
+                spin(true)
+              }
+                  
+            }
+        } else {
+            if (deltaY > 0) {
+              spin(true)
+            } else {
+              spin(false)
+            }
+        }
+    }
+});
 
+document.addEventListener("mouseup", function() {
+    isDragging = false;   
+});
 
-
-    })
-
-function setupRotation(){}
-
-  
-
+document.addEventListener("mouseleave", function() {
+    if (isDragging) {
+        isDragging = false;
+    }
+});
 
   })
 
