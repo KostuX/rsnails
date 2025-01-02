@@ -71,6 +71,8 @@ export default function Gallery_Frame(cfg) {
 
 
     for (let i = 0; i < images.length; i++) {
+      
+      console.log(i)
 
       let item = document.createElement("div")
       item.className = "item"
@@ -98,6 +100,7 @@ export default function Gallery_Frame(cfg) {
       item.addEventListener("mouseover", function (){
         const imageInsideItem = item.querySelector("img")
         previewImage.src = imageInsideItem.src
+
         setDisplayImageIndex(index)
 
         gsap.set(item,{
@@ -177,13 +180,15 @@ function setupRotation(){}
     const numberOfItems =  items.length
     const angle = (360 / numberOfItems)
 
-    const nextItemToDisplay = (forward ? displayImageIndex+1 : displayImageIndex-1) % items.length
+    let nextItemToDisplay = ((forward ? displayImageIndex+1 :  displayImageIndex-1 + images.length)  )
+    nextItemToDisplay = nextItemToDisplay % images.length
+
     setDisplayImageIndex(nextItemToDisplay)
     const spinTo = forward ? `+=${angle}` : `-=${angle}`   
-  
+   
     previewImage.scr = images[nextItemToDisplay].src
    
-    items.forEach((item, index)=>{     
+    items.forEach((item)=>{     
       gsap.to(item,{
         rotationZ: spinTo,
         ease:"power3.out",
