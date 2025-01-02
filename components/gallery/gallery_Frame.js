@@ -19,29 +19,29 @@ export default function Gallery_Frame(cfg) {
 
   let images = [
     { src: "./gallery/1.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    
+
     { src: "./gallery/2.png", alt: "img", title: "Title", description: "Description", price: 0 },
     { src: "./gallery/3.png", alt: "img", title: "Title", description: "Description", price: 0 },
     { src: "./gallery/4.png", alt: "img", title: "Title", description: "Description", price: 0 },
     { src: "./gallery/5.png", alt: "img", title: "Title", description: "Description", price: 0 },
     { src: "./gallery/1.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    
+
     { src: "./gallery/2.png", alt: "img", title: "Title", description: "Description", price: 0 },
     { src: "./gallery/3.png", alt: "img", title: "Title", description: "Description", price: 0 },
     { src: "./gallery/4.png", alt: "img", title: "Title", description: "Description", price: 0 },
     { src: "./gallery/5.png", alt: "img", title: "Title", description: "Description", price: 0 },
     { src: "./gallery/1.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    
+
     { src: "./gallery/2.png", alt: "img", title: "Title", description: "Description", price: 0 },
     { src: "./gallery/3.png", alt: "img", title: "Title", description: "Description", price: 0 },
     { src: "./gallery/4.png", alt: "img", title: "Title", description: "Description", price: 0 },
     { src: "./gallery/5.png", alt: "img", title: "Title", description: "Description", price: 0 },
 
-    
+
   ];
 
   useGSAP(() => {
-    
+
     const gallery = document.querySelector(".gallery")
     const previewImage = document.querySelector(".preview-img img")
 
@@ -94,32 +94,32 @@ export default function Gallery_Frame(cfg) {
         transformOrigin: "100% 300px"
 
       })
-      item.addEventListener("mouseover", function (){
+      item.addEventListener("mouseover", function () {
         const imageInsideItem = item.querySelector("img")
         previewImage.src = imageInsideItem.src
 
         setDisplayImageIndex(index)
 
-        gsap.set(item,{
-          x:10,
-          y:10,
-          z:10,
+        gsap.set(item, {
+          x: 10,
+          y: 10,
+          z: 10,
           ease: "power2.out",
-          duration:0.5, 
-        
+          duration: 0.5,
+
         })
       })
-    
 
-      item.addEventListener("mouseout", function (){
+
+      item.addEventListener("mouseout", function () {
         previewImage.scr = images[displayImageIndex].src
 
-        gsap.set(item,{
-          x:0,
-          y:0,
-          z:0,
+        gsap.set(item, {
+          x: 0,
+          y: 0,
+          z: 0,
           ease: "power2.out",
-          duration:0.5
+          duration: 0.5
         })
       })
 
@@ -129,84 +129,132 @@ export default function Gallery_Frame(cfg) {
     let startY = 0;
     let isDragging = false;
 
-    document.addEventListener("mousedown", function(event) {     
-      startX = event.clientX;
-      startY = event.clientY;
-      isDragging = true;
+
+
+    // mobile
+
+    document.addEventListener('touchend', function() {
+      isTouching = false;     
   });
 
-  document.addEventListener("mousemove", function(event) {
-    if (isDragging) {
-        const deltaX = event.clientX - startX;
-        const deltaY = event.clientY - startY;
+ 
+  document.addEventListener('touchcancel', function() {
+      isTouching = false;  
+  });
 
-        const viewportHeight = window.innerHeight;
-        const upperHalf = (viewportHeight /2 > event.clientY)       
+  document.addEventListener('touchmove', function(event) {
+    if (isTouching) {
+        // Prevent default behavior (e.g., prevent scrolling)
+        event.preventDefault();
 
+        const touch = event.touches[0];
+
+        // Get the current touch position
+        const deltaX = touch.clientX - startX;
+        const deltaY = touch.clientY - startY;
+
+        // Determine the direction based on the movement
         if (Math.abs(deltaX) > Math.abs(deltaY)) {
-       
+            // Horizontal movement (left or right)
             if (deltaX > 0) {
-
-              if(upperHalf){
                 spin(true)
-              }else{
-                spin(false)
-              }
-                   
             } else {
-              if(upperHalf){
                 spin(false)
-              }else{
-                spin(true)
-              }
-                  
             }
         } else {
+            // Vertical movement (up or down)
             if (deltaY > 0) {
-              spin(true)
+                spin(false)
             } else {
-              spin(false)
+                spin(true)
             }
         }
     }
 });
+    // pc
 
-document.addEventListener("mouseup", function() {
-    isDragging = false;   
-});
+    document.addEventListener("mousedown", function (event) {
+      startX = event.clientX;
+      startY = event.clientY;
+      isDragging = true;
+    });
 
-document.addEventListener("mouseleave", function() {
-    if (isDragging) {
+
+
+    document.addEventListener("mousemove", function (event) {
+      if (isDragging) {
+        const deltaX = event.clientX - startX;
+        const deltaY = event.clientY - startY;
+
+        const viewportHeight = window.innerHeight;
+        const upperHalf = (viewportHeight / 2 > event.clientY)
+
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+
+          if (deltaX > 0) {
+
+            if (upperHalf) {
+              spin(true)
+            } else {
+              spin(false)
+            }
+
+          } else {
+            if (upperHalf) {
+              spin(false)
+            } else {
+              spin(true)
+            }
+
+          }
+        } else {
+          if (deltaY > 0) {
+            spin(true)
+          } else {
+            spin(false)
+          }
+        }
+      }
+    });
+
+    document.addEventListener("mouseup", function () {
+      isDragging = false;
+    });
+
+    document.addEventListener("mouseleave", function () {
+      if (isDragging) {
         isDragging = false;
-    }
-});
+      }
+    });
 
   })
 
 
-  function spin(forward = true){
+  function spin(forward = true) {
     const items = document.querySelectorAll(".item")
     const previewImage = document.querySelector(".preview-img img")
-    const numberOfItems =  items.length
+    const numberOfItems = items.length
     const angle = (360 / numberOfItems)
 
-    let nextItemToDisplay = ((forward ? displayImageIndex+1 :  displayImageIndex-1 + images.length)  )
+    let nextItemToDisplay = ((forward ? displayImageIndex + 1 : displayImageIndex - 1 + images.length))
     nextItemToDisplay = nextItemToDisplay % images.length
 
+    console.log(nextItemToDisplay)
+
     setDisplayImageIndex(nextItemToDisplay)
-    const spinTo = forward ? `+=${angle}` : `-=${angle}`   
-   
+    const spinTo = forward ? `+=${angle}` : `-=${angle}`
+
     previewImage.scr = images[nextItemToDisplay].src
-   
-    items.forEach((item)=>{     
-      gsap.to(item,{
+
+    items.forEach((item) => {
+      gsap.to(item, {
         rotationZ: spinTo,
-        ease:"power3.out",
-        duration:1,
-        overwrite:"auto"
+        ease: "power3.out",
+        duration: 1,
+        overwrite: "auto"
       })
     })
-  
+
   }
   return (<div className="h-screen">
     <div className="preview-img">
@@ -216,7 +264,7 @@ document.addEventListener("mouseleave", function() {
     <div className="container">
       <div className="gallery"></div>
     </div>
-    <Button size="lg" onPress={()=>{spin(true)}}> {"<"} </Button>
-    <Button size="lg" onPress={()=>{spin(false)}}> {">"} </Button>
+    <Button size="lg" onPress={() => { spin(true) }}> {"<"} </Button>
+    <Button size="lg" onPress={() => { spin(false) }}> {">"} </Button>
   </div>)
 }
