@@ -298,12 +298,14 @@ export default function Gallery_Frame(cfg) {
 
   }
   return (<div className="h-screen overflow-hidden ">
-    <div className="preview-img">
-      <img src={images[displayImageIndex].src} alt={images[displayImageIndex].alt} />
-    </div>
+   
 
     <div className="container">
       <div className="gallery"></div>
+    </div>
+    <div className="preview-img ">
+      <img src={images[displayImageIndex]?.src} alt={images[displayImageIndex]?.alt} />
+      <div className=" text-center">{images[displayImageIndex]?.description}</div>
     </div>
     <div className="mt-[85vh]  justify-center relevent h-screen w-screen ">
       <Button className="w-1/2 p-4" size="lg" onPress={() => { spin(true) }}> {"<"} </Button>
