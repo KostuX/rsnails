@@ -42,6 +42,8 @@ export default function Gallery_Frame(cfg) {
 
   useGSAP(() => {
 
+    document.body.style.overflow = 'hidden';
+
     const gallery = document.querySelector(".gallery")
     const previewImage = document.querySelector(".preview-img img")
 
@@ -132,42 +134,61 @@ export default function Gallery_Frame(cfg) {
 
 
     // mobile
+ 
 
     document.addEventListener('touchend', function() {
-      isTouching = false;     
+      isDragging = false;     
   });
 
  
   document.addEventListener('touchcancel', function() {
-      isTouching = false;  
+    isDragging = false;  
+  });
+
+  document.addEventListener('touchstart', (event) => {
+    startX = event.touches[0].clientX;
+    startY = event.touches[0].clientY;
+    isDragging = true; 
+
+
   });
 
   document.addEventListener('touchmove', function(event) {
-    if (isTouching) {
-        // Prevent default behavior (e.g., prevent scrolling)
-        event.preventDefault();
-
+    if (isDragging) {        
+       
         const touch = event.touches[0];
-
-        // Get the current touch position
+ 
         const deltaX = touch.clientX - startX;
         const deltaY = touch.clientY - startY;
 
-        // Determine the direction based on the movement
+        const viewportHeight = window.innerHeight;
+        const upperHalf = (viewportHeight / 2 > touch.clientY)
+
+             console.log(viewportHeight/2, touch.clientY, upperHalf)
         if (Math.abs(deltaX) > Math.abs(deltaY)) {
-            // Horizontal movement (left or right)
-            if (deltaX > 0) {
-                spin(true)
+
+          if (deltaX > 0) {
+
+            if (upperHalf) {
+              spin(true)
             } else {
-                spin(false)
+              spin(false)
             }
+
+          } else {
+            if (upperHalf) {
+              spin(false)
+            } else {
+              spin(true)
+            }
+
+          }
         } else {
-            // Vertical movement (up or down)
-            if (deltaY > 0) {
-                spin(false)
-            } else {
-                spin(true)
-            }
+          if (deltaY > 0) {
+            spin(true)
+          } else {
+            spin(false)
+          }
         }
     }
 });
@@ -239,7 +260,7 @@ export default function Gallery_Frame(cfg) {
     let nextItemToDisplay = ((forward ? displayImageIndex + 1 : displayImageIndex - 1 + images.length))
     nextItemToDisplay = nextItemToDisplay % images.length
 
-    console.log(nextItemToDisplay)
+ 
 
     setDisplayImageIndex(nextItemToDisplay)
     const spinTo = forward ? `+=${angle}` : `-=${angle}`
@@ -256,7 +277,7 @@ export default function Gallery_Frame(cfg) {
     })
 
   }
-  return (<div className="h-screen">
+  return (<div className="h-screen overflow-hidden ">
     <div className="preview-img">
       <img src={images[displayImageIndex].src} alt={images[displayImageIndex].alt} />
     </div>
@@ -264,7 +285,9 @@ export default function Gallery_Frame(cfg) {
     <div className="container">
       <div className="gallery"></div>
     </div>
-    <Button size="lg" onPress={() => { spin(true) }}> {"<"} </Button>
-    <Button size="lg" onPress={() => { spin(false) }}> {">"} </Button>
+    <div className="mt-[85vh]  justify-center relevent h-screen w-screen ">
+    <Button className="w-1/2 p-4" size="lg" onPress={() => { spin(true) }}> {"<"} </Button>
+    <Button className="w-1/2  p-4" size="lg" onPress={() => { spin(false) }}> {">"} </Button>
+    </div>
   </div>)
 }
