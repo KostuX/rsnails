@@ -6,6 +6,7 @@ export default function ImageFrame(props){
     
     return(
     <div>
+        
    <Card className="py-4">
 
 <CardBody className="overflow-visible py-2  justify-center grid">

@@ -21,7 +21,7 @@ export default function ComponentLayout(props) {
     </div>
   );
   return (
-    <div  className="bg-[url('/bg/1-noBG_w.png')] bg-center bg-no-repeat" >
+
     <div style={{ minHeight: "75vh" }}>
       <div className={`uppercase  ${left ? "text-left" : "text-right"} mx-12`}>
         {animateTitle(el.title, left)}
@@ -31,6 +31,6 @@ export default function ComponentLayout(props) {
         {left ? imageComp : textComp}
       </div>
     </div>
-    </div>
+ 
   );
 }

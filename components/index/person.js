@@ -92,5 +92,9 @@ export default function Person(cfg) {
     },
   };
 
-  return <ComponentLayout props={props} />;
+  return <div
+  className="sm:bg-[url('/bg/1-noBG_w.png')] bg-center bg-no-repeat flex justify-center"
+  >
+    <ComponentLayout props={props} />
+    </div>
 }

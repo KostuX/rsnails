@@ -85,5 +85,9 @@ export default function Block2(cfg) {
     },
   };
 
-  return <ComponentLayout props={props} />;
+  return   (
+  <div className=" bg-[url('/bg/1-noBG_w.png')]  bg-center bg-no-repeat flex justify-center "
+  > <ComponentLayout props={props} />
+  </div>
+  )
 }
