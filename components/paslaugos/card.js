@@ -26,7 +26,7 @@ export default function Gallery_Card(prop) {
             alt={`${img?.alt}`}
             className="object-cover rounded-xl "
             src={`${img?.src}`}
-            width={270}
+            
             ref={img_ref}
           />
         </CardBody>

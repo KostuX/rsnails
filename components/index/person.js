@@ -65,7 +65,7 @@ export default function Person(cfg) {
   });
 
   let props = {
-    config:config,
+    config: config,
     leftSide: true,
     elements: {
       title: "Apie Mus",
@@ -85,14 +85,15 @@ export default function Person(cfg) {
         <img
           className=" h-[30vh] w-[30vh]"
           src="/profile.jpg"
-          alt="Profile Image"        
+          alt="Profile Image"
           ref={img}
         />
       ),
     },
   };
 
-  return  ( <div className=" bg-[url('/bg/1-noBG_w.png')]  bg-center bg-no-repeat flex justify-center h-screen ">
-    <ComponentLayout props={props} />
+  return (
+    <div className=" bg-[url('/bg/1-noBG_w.png')]  bg-center bg-no-repeat  ">
+      <ComponentLayout props={props} />
     </div>)
 }

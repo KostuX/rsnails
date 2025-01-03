@@ -42,7 +42,8 @@ export default function gallery(cfg) {
 
 
   return (
-    <div className="bg-[url('/bg/1.png')] bg-centerbg-repeat-y">
+    <div className="bg-blue-100">
+    <div className=" bg-[url('/bg/1-noBG_b.png')] bg-center bg-repeat-x bg-repeat-y">
       <Head />
       <Navbar />
       <div className="justify-center flex z-0 ">
@@ -70,6 +71,7 @@ export default function gallery(cfg) {
  
 </div>
 }
+    </div>
     </div>
   );
 }

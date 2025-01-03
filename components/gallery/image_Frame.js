@@ -14,7 +14,7 @@ export default function ImageFrame(props){
     alt={`${img?.alt}`}
     className="object-cover rounded-xl "
     src={`${img?.src}`}
-    width={270}
+
 
   />
 </CardBody>
