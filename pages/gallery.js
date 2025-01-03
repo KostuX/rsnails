@@ -45,20 +45,22 @@ export default function gallery(cfg) {
     <div>
       <Head />
       <Navbar />
-      <div className="justify-center flex mt-24">
+      <div className="justify-center flex z-0">
+      <div className=" mt-12 fixed">
        <ButtonGroup >      <Button isDisabled = {viewType==="2D Cards"} onPress={()=>{setViewType("2D Cards")}}>2D Cards</Button>     
       <Button isDisabled = {viewType==="3D Circle"} onPress={()=>{setViewType("3D Circle")}}>3D Circle</Button>
     </ButtonGroup>
     </div>
+    </div>
     {viewType==="3D Circle" &&
 
-      <div className="flex">
+      <div className="flex mt-24">
         <Gallery_Frame />
       </div>
       }
     {viewType==="2D Cards" &&
 
-<div className="grid sm:grid-cols-3 mx-12">
+<div className="grid sm:grid-cols-3 mx-12 mt-24">
   {images.map((img,i)=>(
     <div className="m-4">
    <ImageFrame img={img}/>
