@@ -113,9 +113,8 @@ export default function Contact(cfg) {
   };
 
   return (
-    <>
-      {" "}
+    <div className="bg-[url('/bg/2.png')] bg-centerbg-repeat-y">
       <ComponentLayout props={props} />
-    </>
+    </div>
   );
 }

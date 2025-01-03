@@ -77,7 +77,7 @@ export default function Gallery(cfg) {
   }
 
   return (
-    <div className="sm:h-screen " ref={main_div}>
+    <div className="sm:h-screen bg-[url('/bg/2.png')] bg-centerbg-repeat-y" ref={main_div}>
       <div className=" uppercase text-right mx-12">
         {" "}
         {animateTitle("darbai", false)}
