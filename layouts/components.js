@@ -21,14 +21,16 @@ export default function ComponentLayout(props) {
     </div>
   );
   return (
-    <div className="bg-[url('/bg/bg-btn.jpg')]" style={{ minHeight: "75vh" }}>
-      <div className={`uppercase t ${left ? "text-left" : "text-right"} mx-12`}>
+    <div  className="bg-[url('/bg/1-noBG_w.png')] bg-center bg-no-repeat" >
+    <div style={{ minHeight: "75vh" }}>
+      <div className={`uppercase  ${left ? "text-left" : "text-right"} mx-12`}>
         {animateTitle(el.title, left)}
       </div>
       <div className="grid sm:grid-cols-2 grid-cols-1 overflow-hidden ">
         {left ? textComp : imageComp}
         {left ? imageComp : textComp}
       </div>
+    </div>
     </div>
   );
 }
