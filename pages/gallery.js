@@ -1,4 +1,6 @@
-import CommingSoon from "../components/commingSoon";
+import { Navbar } from "../components/navbar";
+import { Foot } from "../components/footer";
+import { Head } from "../components/head";
 import DefaultLayout from "../layouts/default";
 import Gallery_Frame from "../components/gallery/gallery_Frame";
 import config_all from "../config/config";
@@ -40,7 +42,9 @@ export default function gallery(cfg) {
 
 
   return (
-    <DefaultLayout>
+    <div>
+      <Head />
+      <Navbar />
       <div className="justify-center flex mt-24">
        <ButtonGroup >      <Button isDisabled = {viewType==="2D Cards"} onPress={()=>{setViewType("2D Cards")}}>2D Cards</Button>     
       <Button isDisabled = {viewType==="3D Circle"} onPress={()=>{setViewType("3D Circle")}}>3D Circle</Button>
@@ -64,6 +68,6 @@ export default function gallery(cfg) {
  
 </div>
 }
-    </DefaultLayout>
+    </div>
   );
 }
