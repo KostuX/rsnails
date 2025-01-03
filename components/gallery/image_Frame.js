@@ -7,9 +7,9 @@ export default function ImageFrame(props){
     return(
     <div>
         
-   <Card className="py-4">
+   <Card className="sm:py-4">
 
-<CardBody className="overflow-visible py-2  justify-center grid">
+<CardBody className="overflow-visible py-2 justify-center grid">
   <Image
     alt={`${img?.alt}`}
     className="object-cover rounded-xl "

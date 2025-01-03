@@ -61,7 +61,7 @@ export default function gallery(cfg) {
       }
     {viewType==="2D Cards" &&
 
-<div className="grid sm:grid-cols-3 mx-12 mt-24">
+<div className="grid sm:grid-cols-3 sm:mx-12 mt-24">
   {images.map((img,i)=>(
     <div className="m-4">
    <ImageFrame img={img}/>
