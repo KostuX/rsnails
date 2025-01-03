@@ -21,7 +21,7 @@ export default function ComponentLayout(props) {
     </div>
   );
   return (
-    <div className="" style={{ minHeight: "75vh" }}>
+    <div className="bg-[url('/bg/bg-btn.jpg')]" style={{ minHeight: "75vh" }}>
       <div className={`uppercase t ${left ? "text-left" : "text-right"} mx-12`}>
         {animateTitle(el.title, left)}
       </div>

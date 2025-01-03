@@ -45,8 +45,9 @@ export default function Banner(cfg) {
           >
             {config.siteConfig.title}
           </h1>
+  
           <h5
-            className={`bg-gradient-to-r from-yellow-500 via-blue-500 to-indigo-100 inline-block text-transparent bg-clip-text  text-xl mt-12 ${config.fonts.title.font} sm:mt-12`}
+            className={`bg-gradient-to-r from-yellow-100 via-blue-500 to-indigo-100 inline-block text-transparent bg-clip-text  text-xl mt-12 ${config.fonts.title.font} sm:mt-12`}
           >
             Nuspalvink savo pasaulį.
           </h5>
@@ -72,7 +73,7 @@ export default function Banner(cfg) {
     ),
   };
 
-  let btn_decor = "mx-4  shadow-lg max-w-[24vh] hover:bg-black hover:bg-opacity-70 bg-opacity-90 bg-red-400"
+  let btn_decor = "mx-4  shadow-lg max-w-[24vh] hover:bg-red-100 hover:bg-opacity-70 bg-opacity-50 bg-red-400"
   const buttons = {
     children: (
       <div className="flex justify-center">
@@ -86,6 +87,7 @@ export default function Banner(cfg) {
             <TbBrandGoogleMaps size={100} />
             <div className="hidden sm:flex">Rasti</div>
           </Button>
+          
           <Button
             className={`${btn_decor}`}
             radius="full"
@@ -95,6 +97,7 @@ export default function Banner(cfg) {
             <TfiEmail size={100} />
             <div className="hidden sm:flex">e-Pastas</div>
           </Button>
+
           <Button
             className={`${btn_decor}`}
             radius="full"
@@ -103,8 +106,6 @@ export default function Banner(cfg) {
           >
             <LuPhoneCall size={100} />
             <div className="hidden sm:flex">Paskambint</div>
-
-
           </Button>
          
 
