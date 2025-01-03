@@ -66,14 +66,14 @@ export default function Block2(cfg) {
     leftSide: false,
     elements: {
       title: "Apie Mus",
-      subTitle: <div ref={subTitle}>Mes</div>,
+      subTitle: <div ref={subTitle}>RS Nails</div>,
       content: (
         <div ref={content}>
-          Esu profesionali manikiūrininkė, teikianti aukščiausios kokybės
-          paslaugas. Kiekvienam klientui suteikiu individualų dėmesį,
-          atsižvelgdama į jų pageidavimus ir stilių. Naudodama tik geriausias
-          priemones, užtikrinu ilgalaikį ir nepriekaištingą rezultatą. Mano
-          tikslas – suteikti jums elegancijos ir pasitikėjimo savimi.
+                 "Nedvejokite siekti aukštumų, kai kalbama apie jūsų nagų dizaino siekius. Nesvarbu, ar svajojate apie subtilias gėles, įspūdingus gradientinius efektus, nesenstančią klasikinę raudoną spalvą ar elegantišką prancūzišką manikiūrą - mes pasirūpinsime jūsų norais.
+
+„RS Nails“ salone mūsų profesionalų komanda yra pasirengusi paversti jūsų nagų svajones realybe. Pasitelkę neprilygstamą patirtį ir dėmesį detalėms, siekiame pranokti jūsų lūkesčius kiekvieno apsilankymo metu.
+
+Patikėkite savo nagų grožį mums, ir mes pasirūpinsime, kad jaustumėtės nuostabiai nuo rankų iki kojų pirštų galiukų. Rezervuokite laiką jau šiandien ir leiskite mums išpildyti jūsų pageidavimus!"
         </div>
       ),
       img: (

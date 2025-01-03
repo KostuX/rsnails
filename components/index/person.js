@@ -69,7 +69,7 @@ export default function Person(cfg) {
     leftSide: true,
     elements: {
       title: "Apie Mus",
-      subTitle: <div ref={subTitle}>Apie</div>,
+      subTitle: <div ref={subTitle}>RS</div>,
       content: (
         <div className="overflow-hidden">
           <div ref={content}>

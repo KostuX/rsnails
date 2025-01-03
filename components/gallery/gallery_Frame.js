@@ -6,7 +6,8 @@ import Gallery_Card from "../paslaugos/card";
 import gsap from "gsap";
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { Button } from "@nextui-org/react";
+import { Button, } from "@nextui-org/react";
+import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 gsap.registerPlugin(useGSAP);
 
 gsap.registerPlugin(ScrollTrigger)
@@ -43,12 +44,12 @@ export default function Gallery_Frame(cfg) {
 
   useGSAP(() => {
 
-   
+
 
     const gallery = document.querySelector(".gallery")
     const previewImage = document.querySelector(".preview-img img")
 
-    
+
     document.addEventListener("mousemove", function (event) {
       let x = event.clientX;
       let y = event.clientY;
@@ -94,6 +95,7 @@ export default function Gallery_Frame(cfg) {
     items.forEach((item, index) => {
       gsap.set(item, {
         rotateY: 90,
+
         rotateZ: index * angleIncrement - 90,
         transformOrigin: "100% 300px"
 
@@ -133,7 +135,7 @@ export default function Gallery_Frame(cfg) {
     let startY = 0;
     let isDragging = false;
     let lastDeltaX = 0;
-    
+
 
 
 
@@ -163,41 +165,41 @@ export default function Gallery_Frame(cfg) {
     moveEvent.forEach(eventType => {
       document.addEventListener(eventType, function (event) {
         if (isDragging) {
-          let  touch = event
+          let touch = event
 
-          if( eventType === 'touchmove'){
-             touch = event?.touches[0] ;        
-          }  
-          
+          if (eventType === 'touchmove') {
+            touch = event?.touches[0];
+          }
+
           const deltaX = touch.clientX - startX;
           const deltaY = touch.clientY - startY;
 
-       
+
           let turnLeft = (deltaX - lastDeltaX) > 0
 
 
-  
+
           const viewportHeight = window.innerHeight;
           const upperHalf = (viewportHeight / 2 > touch.clientY)
-  
-  
+
+
           if (Math.abs(lastDeltaX) > Math.abs(deltaY)) {
-  
-            if (turnLeft ) {
-  
+
+            if (turnLeft) {
+
               if (upperHalf) {
                 spin(true)
               } else {
                 spin(false)
               }
-  
+
             } else {
               if (upperHalf) {
                 spin(false)
               } else {
                 spin(true)
               }
-  
+
             }
           } else {
             if (deltaY > 0) {
@@ -210,64 +212,64 @@ export default function Gallery_Frame(cfg) {
           lastDeltaX = deltaX
         }
 
-        
-      
+
+
       });
-      
+
     });
 
-  
+
 
 
 
 
     // pc
 
- 
 
 
-/*
-    document.addEventListener("mousemove", function (event) {
-      if (isDragging) {
-        const deltaX = event.clientX - startX;
-        const deltaY = event.clientY - startY;
 
-        const viewportHeight = window.innerHeight;
-        const upperHalf = (viewportHeight / 2 > event.clientY)
-
-        if (Math.abs(deltaX) > Math.abs(deltaY)) {
-
-          if (deltaX > 0) {
-
-            if (upperHalf) {
-              spin(true)
+    /*
+        document.addEventListener("mousemove", function (event) {
+          if (isDragging) {
+            const deltaX = event.clientX - startX;
+            const deltaY = event.clientY - startY;
+    
+            const viewportHeight = window.innerHeight;
+            const upperHalf = (viewportHeight / 2 > event.clientY)
+    
+            if (Math.abs(deltaX) > Math.abs(deltaY)) {
+    
+              if (deltaX > 0) {
+    
+                if (upperHalf) {
+                  spin(true)
+                } else {
+                  spin(false)
+                }
+    
+              } else {
+                if (upperHalf) {
+                  spin(false)
+                } else {
+                  spin(true)
+                }
+    
+              }
             } else {
-              spin(false)
+              if (deltaY > 0) {
+                spin(true)
+              } else {
+                spin(false)
+              }
             }
-
-          } else {
-            if (upperHalf) {
-              spin(false)
-            } else {
-              spin(true)
-            }
-
           }
-        } else {
-          if (deltaY > 0) {
-            spin(true)
-          } else {
-            spin(false)
-          }
-        }
-      }
-    });
-
-    */
+        });
+    
+        */
 
 
 
-  
+
 
   })
 
@@ -299,21 +301,42 @@ export default function Gallery_Frame(cfg) {
 
   }
   return (<div className="h-screen overflow-hidden ">
-   
+
 
     <div className="container">
       <div className="gallery"></div>
     </div>
     <div className="preview-img ">
-      <Gallery_Card img={images[displayImageIndex]}></Gallery_Card>
+      <Card className="py-4">
+
+        <CardBody className="overflow-visible py-2  justify-center grid">
+          <Image
+            alt={`${images[displayImageIndex]?.alt}`}
+            className="object-cover rounded-xl "
+            src={`${images[displayImageIndex]?.src}`}
+            width={270}
+          
+          />
+        </CardBody>
+        <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+          <h4 className="font-bold text-large" >{images[displayImageIndex]?.title}</h4>
+          <p className="text-tiny uppercase font-bold" >{images[displayImageIndex]?.description}</p>
+          
+        </CardHeader>
+      
+
+      </Card>
+      <div>
+
+<Button className="w-1/2" size="sm" onPress={() => { spin(true) }}> {"< Previous"} </Button>
+<Button className="w-1/2 " size="sm" onPress={() => { spin(false) }}> {"Next >"} </Button>
+
+</div>
       {/*}
       <img src={images[displayImageIndex]?.src} alt={images[displayImageIndex]?.alt} />
       <div className=" text-center">{images[displayImageIndex]?.description}</div>
       {*/}
     </div>
-    <div className="mt-[85vh]  justify-center relevent h-screen w-screen ">
-      <Button className="w-1/2 p-4" size="lg" onPress={() => { spin(true) }}> {"<"} </Button>
-      <Button className="w-1/2  p-4" size="lg" onPress={() => { spin(false) }}> {">"} </Button>
-    </div>
+
   </div>)
 }
