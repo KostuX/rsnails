@@ -300,43 +300,43 @@ export default function Gallery_Frame(cfg) {
     })
 
   }
-  return (<div className="h-screen overflow-hidden ">
+  return (
+    <div className=" overflow-hidden  ">
+      <div className="container ">
+        <div className="gallery"></div>
+      </div>
+      <div className="preview-img ">
+        <Card className="py-4">
+
+          <CardBody className="overflow-visible py-2  justify-center grid">
+            <Image
+              alt={`${images[displayImageIndex]?.alt}`}
+              className="object-cover rounded-xl "
+              src={`${images[displayImageIndex]?.src}`}
+              width={270}
+
+            />
+          </CardBody>
+          <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+            <h4 className="font-bold text-large" >{images[displayImageIndex]?.title}</h4>
+            <p className="text-tiny uppercase font-bold" >{images[displayImageIndex]?.description}</p>
+
+          </CardHeader>
 
 
-    <div className="container">
-      <div className="gallery"></div>
-    </div>
-    <div className="preview-img ">
-      <Card className="py-4">
+        </Card>
+        <div className="mt-2">
 
-        <CardBody className="overflow-visible py-2  justify-center grid">
-          <Image
-            alt={`${images[displayImageIndex]?.alt}`}
-            className="object-cover rounded-xl "
-            src={`${images[displayImageIndex]?.src}`}
-            width={270}
-          
-          />
-        </CardBody>
-        <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-          <h4 className="font-bold text-large" >{images[displayImageIndex]?.title}</h4>
-          <p className="text-tiny uppercase font-bold" >{images[displayImageIndex]?.description}</p>
-          
-        </CardHeader>
-      
+          <Button className="w-1/2" size="sm" onPress={() => { spin(true) }}> {"< Previous"} </Button>
+          <Button className="w-1/2 " size="sm" onPress={() => { spin(false) }}> {"Next >"} </Button>
 
-      </Card>
-      <div>
-
-<Button className="w-1/2" size="sm" onPress={() => { spin(true) }}> {"< Previous"} </Button>
-<Button className="w-1/2 " size="sm" onPress={() => { spin(false) }}> {"Next >"} </Button>
-
-</div>
-      {/*}
+        </div>
+        {/*}
       <img src={images[displayImageIndex]?.src} alt={images[displayImageIndex]?.alt} />
       <div className=" text-center">{images[displayImageIndex]?.description}</div>
       {*/}
-    </div>
+      </div>
 
-  </div>)
+
+    </div>)
 }
