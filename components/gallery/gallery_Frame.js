@@ -301,7 +301,7 @@ export default function Gallery_Frame(cfg) {
 
   }
   return (
-    <div className=" overflow-hidden  ">
+    <div className="  h-screen bg-blue-100  ">
       <div className="container ">
         <div className="gallery"></div>
       </div>
