@@ -1,6 +1,7 @@
 import { Button, Divider } from "@nextui-org/react";
 import animateTitle from "../../utils/animateTitle";
 import { useRouter } from 'next/router'
+import { cfg_images } from "../../config/cfg_images";
 
 import gsap from "gsap";
 import CustomEase from "gsap/dist/CustomEase";
@@ -11,13 +12,7 @@ import { useRef, useEffect, useState } from "react";
 export default function Gallery(cfg) {
   const router = useRouter()
   const config = cfg.config
-  let images = [
-    { src: "./gallery/1.png", alt: "img" },
-    { src: "./gallery/2.png", alt: "img" },
-    { src: "./gallery/3.png", alt: "img" },
-    { src: "./gallery/4.png", alt: "img" },
-    { src: "./gallery/5.png", alt: "img" },
-  ];
+  let images = cfg_images.short;
 
   let isAnimating = false;
 

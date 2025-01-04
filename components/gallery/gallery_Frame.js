@@ -10,42 +10,16 @@ import { Button, } from "@nextui-org/react";
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 gsap.registerPlugin(useGSAP);
 
-gsap.registerPlugin(ScrollTrigger)
 
-//https://www.youtube.com/watch?v=v0UoqZJRP5M&t=349s
-
-export default function Gallery_Frame(cfg) {
+export default function Gallery_Frame(img) {
   const config = config_all();
   const [displayImageIndex, setDisplayImageIndex] = useState(0)
 
-
-  let images = [
-    { src: "./gallery/1.png", alt: "img", title: "Title", description: "Description", price: 0 },
-
-    { src: "./gallery/2.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/3.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/4.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/5.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/1.png", alt: "img", title: "Title", description: "Description", price: 0 },
-
-    { src: "./gallery/2.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/3.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/4.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/5.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/1.png", alt: "img", title: "Title", description: "Description", price: 0 },
-
-    { src: "./gallery/2.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/3.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/4.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/5.png", alt: "img", title: "Title", description: "Description", price: 0 },
-
-
-  ];
+  let images = img.images;
 
   useGSAP(() => {
 
-
-
+    gsap.registerPlugin(ScrollTrigger)
     const gallery = document.querySelector(".gallery")
     const previewImage = document.querySelector(".preview-img img")
 

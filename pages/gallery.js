@@ -7,6 +7,7 @@ import config_all from "../config/config";
 import { Switch,ButtonGroup, Button } from "@nextui-org/react";
 import {useState,useEffect} from "react"
 import ImageFrame from "../components/gallery/image_Frame";
+import {cfg_images} from "../config/cfg_images";
 export default function gallery(cfg) {
   const config = config_all();
 
@@ -14,28 +15,7 @@ export default function gallery(cfg) {
   const [viewType, setViewType] = useState("3D Circle")
 
 
-  let images = [
-    { src: "./gallery/1.png", alt: "img", title: "Title", description: "Description", price: 0 },
-
-    { src: "./gallery/2.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/3.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/4.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/5.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/1.png", alt: "img", title: "Title", description: "Description", price: 0 },
-
-    { src: "./gallery/2.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/3.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/4.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/5.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/1.png", alt: "img", title: "Title", description: "Description", price: 0 },
-
-    { src: "./gallery/2.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/3.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/4.png", alt: "img", title: "Title", description: "Description", price: 0 },
-    { src: "./gallery/5.png", alt: "img", title: "Title", description: "Description", price: 0 },
-
-
-  ];
+  let images = cfg_images.gallery;
 
 
 
@@ -58,7 +38,7 @@ export default function gallery(cfg) {
     {viewType==="3D Circle" &&
 
       <div className="flex mt-24">
-        <Gallery_Frame />
+        <Gallery_Frame images={images} />
       </div>
       }
     {viewType==="2D Cards" &&
