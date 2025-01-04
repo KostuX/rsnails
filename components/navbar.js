@@ -32,7 +32,8 @@ export const Navbar = () => {
               href="/"
             >
               {" "}
-              {cfg.title}
+              <img src="/logo/logoNoBack_w.png" className="h-[50px] "/>
+              <img src="/logo/logoNoBack_b.png" className="h-[50px] dark:hidden"/>
             </NextLink>
           </NavbarBrand>
         </NavbarContent>
