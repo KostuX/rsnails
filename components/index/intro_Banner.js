@@ -25,7 +25,7 @@ export default function Banner(cfg) {
   let config = cfg.config
  
   const background = {
-    image: "./bg/bg.jpg",
+    image: "/bg/bg.jpg",
     translateY: [0, 50],
     opacity: [1, 0.3],
     scale: [1, 1.5, "easeOutCubic"],
