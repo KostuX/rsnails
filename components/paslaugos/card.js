@@ -3,6 +3,7 @@ import { useRef } from "react";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 export default function Gallery_Card(prop) {
   const card_ref = useRef([])
@@ -12,6 +13,7 @@ export default function Gallery_Card(prop) {
   let img = prop.img
 
   useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger)
     gsap.fromTo(card_ref.current, { opacity: 0, y: 100 }, { opacity: 1, y: 0, duration: Math.random() * 3,  scrollTrigger: { trigger: card_ref.current} })
     gsap.fromTo(img_ref.current, { opacity: 0, scale: Math.random() }, { scale: 1,opacity:1 ,duration: Math.random(),scrollTrigger: { trigger: img_ref.current} })
     gsap.fromTo(title_ref.current, {opacity:0, x: -100 }, { x: 0,opacity:1, duration: Math.random() ,scrollTrigger: { trigger: title_ref.current}})
@@ -22,11 +24,12 @@ export default function Gallery_Card(prop) {
       <Card className="py-4">
 
         <CardBody className="overflow-visible py-2  justify-center grid">
-          <Image
+          <img
             alt={`${img?.alt}`}
-            className="object-cover rounded-xl "
+            className="object-cover rounded-xl"
             src={`${img?.src}`}
-            
+
+      
             ref={img_ref}
           />
         </CardBody>

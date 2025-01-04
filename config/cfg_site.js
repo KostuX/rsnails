@@ -1,14 +1,19 @@
 
 
+
 export const cfg_site = {
   title: "RS Nails",
   year: "2024",
   contact:{
-phone:"+370 000 00000",
-email: "email@email.lt",
-address:"Address",
+phone:"Jau Greitai",
+email: "Jau Greitai",
+address:"Jau Greitai",
 map:
 "https://www.google.com/maps?saddr=My+Location&daddr=rsnails",
+soc:{
+  facebook:"https://www.facebook.com",
+  instagram:"https://www.instagram.com"
+}
 
   },
   theme_secondary_light: "#1e00ff",

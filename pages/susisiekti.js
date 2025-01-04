@@ -4,7 +4,7 @@ import config_all from "../config/config";
 export default function susisiekti() {
   const config = config_all();
   return (
-    <div className="bg-blue-100">
+    <div className="sm:bg-blue-100">
     <DefaultLayout>
    
     
@@ -12,7 +12,7 @@ export default function susisiekti() {
       
      
     </DefaultLayout>
+
     </div>
-    
   );
 }

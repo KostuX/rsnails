@@ -24,7 +24,7 @@ export default function Paslaugos() {
                 {animateTitle("Paslaugos", false)}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
                 {images.map((img, i) => (
                     <div className="m-4 md:m-16"key={i}>
                     <Gallery_Card img={img} />
