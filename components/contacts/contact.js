@@ -168,7 +168,7 @@ export default function Contact(cfg) {
 
   return (
  
-    <div className="md:bg-[url('/bg/bg-btn_b.png')] dark:md:bg-[url('/bg/bg-btn_w.png')] bg-center bg-repeat-y">
+    <div className="md:bg-[url('/bg/bg-btn_b.png')] bg-[url('/bg/2_6.png')] bg-center bg-repeat-x bg-repeat-y dark:md:bg-[url('/bg/bg-btn_w.png')] bg-center bg-repeat-y">
       <ComponentLayout props={props} />
     </div>
     
