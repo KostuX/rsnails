@@ -5,7 +5,7 @@ export const cfg_site = {
   title: "RS Nails",
   year: "2024",
   contact:{
-phone:"Jau Greitai",
+phone:"+370 673 86566",
 email: "Jau Greitai",
 address:"Jau Greitai",
 map:

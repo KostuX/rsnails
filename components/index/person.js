@@ -69,15 +69,12 @@ export default function Person(cfg) {
     leftSide: true,
     elements: {
       title: "Apie Mus",
-      subTitle: <div ref={subTitle}>RS</div>,
+      subTitle: <div ref={subTitle}>Sveiki!</div>,
       content: (
         <div className="overflow-hidden">
           <div ref={content}>
-            Esu profesionali manikiūrininkė, teikianti aukščiausios kokybės
-            paslaugas. Kiekvienam klientui suteikiu individualų dėmesį,
-            atsižvelgdama į jų pageidavimus ir stilių. Naudodama tik geriausias
-            priemones, užtikrinu ilgalaikį ir nepriekaištingą rezultatą. Mano
-            tikslas – suteikti jums elegancijos ir pasitikėjimo savimi.
+          Esu Rita, sertifikuota nagų meistrė, ir labai džiaugiuosi galėdama pradėti šią kelionę kartu su jumis.
+Mano tikslas – sukurti jūsų nagams ne tik grožį, bet ir užtikrinti, kad jaustumėtės ypatingai kiekvieną dieną. Šiuo metu dar tobulinu savo įgūdžius, todėl procedūros gali užtrukti šiek tiek ilgiau, tačiau dirbu kruopščiai ir atsakingai, kad rezultatas būtų nepriekaištingas.
           </div>
         </div>
       ),

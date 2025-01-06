@@ -43,9 +43,9 @@ export default function Intro(cfg) {
       <div className=" static h-screen bg-[url('/bg/bg.jpg')] bg-cover bg-center " ref={black_div}>
     <div className="  sm:mt-0 max-h-screen  justify-center flex ">
  
-      <img className="mt-24 h-auto max-w-[75vh] max-w-full absolute" src= "/logo/logoNoBack_w_top.png" ref={imgTop}/>
-      <img className="mt-24 h-auto max-w-[75vh] max-w-full absolute"  src= "/logo/logoNoBack_w_center.png" ref={imgCenter}/>
-      <img className="mt-24 h-auto max-w-[75vh] max-w-full absolute"  src= "/logo/logoNoBack_w_bottom.png" ref={imgBottom}/>
+     <img className="mt-24 h-auto max-w-[75vh] absolute" src= "/logo/logoNoBack_w_top.png" ref={imgTop}/>
+      <img className="mt-24 h-auto max-w-[75vh]  absolute"  src= "/logo/logoNoBack_w_center.png" ref={imgCenter}/>
+      <img className="mt-24 h-auto max-w-[75vh]  absolute"  src= "/logo/logoNoBack_w_bottom.png" ref={imgBottom}/>
 
       </div>
          
