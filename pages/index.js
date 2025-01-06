@@ -1,5 +1,5 @@
 import DefaultLayout from "../layouts/default";
-import Intro from "../components/index/intro_Overlay";
+import Intro from "../components/index/intro_Overlay2";
 import Intro2 from "../components/index/intro2";
 import Block2 from "../components/index/block2";
 import Person from "../components/index/person";

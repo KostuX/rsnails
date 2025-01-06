@@ -93,7 +93,7 @@ export default function Person(cfg) {
   };
 
   return (
-    <div className=" bg-[url('/bg/1-noBG_w.png')]  bg-center bg-no-repeat  ">
+    <div className=" bg-[url('/bg/2_2.png')] bg-cover bg-no-repeat  ">
       <ComponentLayout props={props} />
     </div>)
 }

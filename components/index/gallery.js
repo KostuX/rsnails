@@ -72,7 +72,7 @@ export default function Gallery(cfg) {
   }
 
   return (
-    <div className=" " ref={main_div}>
+    <div className=" bg-[url('/bg/2_6.png')] bg-center bg-cover" ref={main_div}>
       <div className=" uppercase text-right mx-12">
         {" "}
         {animateTitle("darbai", false)}

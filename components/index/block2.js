@@ -86,7 +86,7 @@ export default function Block2(cfg) {
   };
 
   return   (
-    <div className="sm:bg-[url('/bg/4_b.png')]  bg-cover bg-no-repeat flex justify-center bg-opacity-10 ">
+    <div className="sm:bg-[url('/bg/2_3.png')]  bg-cover bg-no-repeat flex justify-center bg-opacity-10 ">
 
   
   <ComponentLayout props={props} />

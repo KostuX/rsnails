@@ -43,7 +43,8 @@ export default function Intro(cfg) {
     );
   });
   return (
-    <div className="h-screen w-screen " ref={main_div}>
+    <div className="" ref={main_div}>
+      
       <div className="bg-black h-screen w-screen absolute  " ref={black_div}>
         <div
           className="bg-[url('/bg/btq.jpg')] h-screen w-screen absolute bg-cover"
@@ -62,6 +63,7 @@ export default function Intro(cfg) {
           ></div>
         </h1>
       </div>
+      
       <div className="banner  " ref={banner_div}>
         <Banner config={config} />
       </div>

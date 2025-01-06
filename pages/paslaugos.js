@@ -7,7 +7,7 @@ export default function paslaugos() {
   const images = cfg_images.services
   return (
     <DefaultLayout>
-          <div className="bg-[url('/bg/1-noBG_w.png')] bg-centerbg-repeat-y">
+          <div className=" bg-[url('/bg/2_6.png')] bg-center bg-repeat-x bg-repeat-y">
       <Paslaugos images= {images} />
       </div>
     </DefaultLayout>
