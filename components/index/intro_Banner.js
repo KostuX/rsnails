@@ -83,6 +83,7 @@ export default function Banner(cfg) {
             radius="full"
             size="sm"            
             onPress={openMap}
+      
           >
             <TbBrandGoogleMaps size={100} />
             <div className="hidden sm:flex">Rasti</div>

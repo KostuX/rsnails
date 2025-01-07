@@ -98,7 +98,7 @@ export default function Gallery(cfg) {
           </div>
         </div>
         <div className="items-center content-center justify-center max-w-2xl  ">
-          <div className="text-center mt-48 sm:mt-24 sm:mt-0">
+          <div className="text-center mt-48  sm:mt-0">
             <div className="w-full font-bold text-2xl mb-4">Daugiau Rasite Cia</div>
             <div className="text-center font-thin mx-12"> 
               <Button

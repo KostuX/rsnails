@@ -90,7 +90,7 @@ Mano tikslas – sukurti jūsų nagams ne tik grožį, bet ir užtikrinti, kad j
   };
 
   return (
-    <div className=" bg-[url('/bg/2_2.png')] bg-cover bg-no-repeat  flex justify-center  ">
+    <div className=" bg-[url('/bg/2_2.png')] dark:bg-none bg-cover bg-no-repeat  flex justify-center  ">
       <ComponentLayout props={props} />
     </div>)
 }

@@ -2,7 +2,7 @@ export default function Intro2(cfg) {
   const config = cfg.config;
   return (
     <div
-      className="bg-[url('/bg/2_5.png')] bg-cover bg-no-repeat flex justify-center content-center grid"
+      className="bg-[url('/bg/2_5.png')] dark:bg-none bg-cover bg-no-repeat flex justify-center content-center grid"
       style={{ minHeight: "75vh" }}
     >
       <div
