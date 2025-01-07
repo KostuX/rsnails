@@ -8,6 +8,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { Button } from "@nextui-org/react";
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
+
 gsap.registerPlugin(useGSAP);
 
 export default function Gallery_Frame(img) {
@@ -104,10 +105,10 @@ export default function Gallery_Frame(img) {
 
       if (axis === "x") {
         let fw = releasedX > 0;
-        changeImage(fw);
+        changeImage(event, fw);
       } else {
         let fw = releasedY > 0;
-        changeImage(fw);
+        changeImage(event, fw);
       }
     });
 
@@ -172,10 +173,13 @@ export default function Gallery_Frame(img) {
     });
   });
 
-  function changeImage(forward = true) {
-    display_index = forward ? display_index + 1 : display_index - 1;
-    display_index = (display_index + images.length) % images.length;
-    setDisplayImageIndex(display_index);
+  function changeImage(event, forward = true) {
+    if (event.pointerType === "touch" || event.target.type !== "button") {
+      console.log("event type", event);
+      display_index = forward ? display_index + 1 : display_index - 1;
+      display_index = (display_index + images.length) % images.length;
+      setDisplayImageIndex(display_index);
+    }
   }
 
   function spin(forward = true) {
@@ -218,9 +222,9 @@ export default function Gallery_Frame(img) {
           <Button
             className="w-1/2"
             size="sm"
-            onPress={() => {
+            onPress={(event) => {
               spin(false);
-              changeImage(false);
+              changeImage(event, false);
             }}
           >
             {" "}
@@ -231,7 +235,7 @@ export default function Gallery_Frame(img) {
             size="sm"
             onPress={() => {
               spin(true);
-              changeImage(true);
+              changeImage(event, true);
             }}
           >
             {" "}
