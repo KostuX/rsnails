@@ -20,7 +20,7 @@ export default function ImageFrame(props){
 </CardBody>
 <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
   <h4 className="font-bold text-large" >{img?.title}</h4>
-  <p className="text-tiny uppercase font-bold" >{img?.description}</p>
+
 
 </CardHeader>
 

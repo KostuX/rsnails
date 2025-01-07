@@ -71,17 +71,17 @@ export default function Person(cfg) {
       title: "Apie Mus",
       subTitle: <div ref={subTitle}>Sveiki!</div>,
       content: (
-        <div className="overflow-hidden">
+       
           <div ref={content}>
           Esu Rita, sertifikuota nagų meistrė, ir labai džiaugiuosi galėdama pradėti šią kelionę kartu su jumis.
 Mano tikslas – sukurti jūsų nagams ne tik grožį, bet ir užtikrinti, kad jaustumėtės ypatingai kiekvieną dieną. Šiuo metu dar tobulinu savo įgūdžius, todėl procedūros gali užtrukti šiek tiek ilgiau, tačiau dirbu kruopščiai ir atsakingai, kad rezultatas būtų nepriekaištingas.
           </div>
-        </div>
+       
       ),
       img: (
         <img
-          className=" h-[30vh] w-[30vh]"
-          src="/profile.jpg"
+          className=" max-h-[75vh] max-w-[75vh]"
+          src="/img/my.png"
           alt="Profile Image"
           ref={img}
         />
@@ -90,7 +90,7 @@ Mano tikslas – sukurti jūsų nagams ne tik grožį, bet ir užtikrinti, kad j
   };
 
   return (
-    <div className=" bg-[url('/bg/2_2.png')] bg-cover bg-no-repeat  ">
+    <div className=" bg-[url('/bg/2_2.png')] bg-cover bg-no-repeat  flex justify-center  ">
       <ComponentLayout props={props} />
     </div>)
 }

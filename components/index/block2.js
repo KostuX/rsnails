@@ -68,6 +68,7 @@ export default function Block2(cfg) {
       title: "Apie Mus",
       subTitle: <div ref={subTitle}>RS Nails</div>,
       content: (
+       
         <div ref={content} >
           "Nedvejokite siekti aukštumų, kai kalbama apie jūsų nagų dizaino siekius. Nesvarbu, ar svajojate apie subtilias gėles, įspūdingus gradientinius efektus, nesenstančią klasikinę raudoną spalvą ar elegantišką prancūzišką manikiūrą - mes pasirūpinsime jūsų norais.
           „RS Nails“ salone mūsų profesionalų komanda yra pasirengusi paversti jūsų nagų svajones realybe. Pasitelkę neprilygstamą patirtį ir dėmesį detalėms, siekiame pranokti jūsų lūkesčius kiekvieno apsilankymo metu.
@@ -76,8 +77,8 @@ export default function Block2(cfg) {
       ),
       img: (
         <img
-          className=" h-[30vh] w-[30vh]"
-          src="/profile.jpg"
+          className="max-h-[75vh] max-w-[75vh]"
+          src="/img/work.png"
           alt="Profile Image"
           ref={img}
         />
@@ -86,7 +87,7 @@ export default function Block2(cfg) {
   };
 
   return   (
-    <div className="sm:bg-[url('/bg/2_3.png')]  bg-cover bg-no-repeat flex justify-center bg-opacity-10 ">
+    <div className="sm:bg-[url('/bg/2_3.png')]  bg-cover bg-no-repeat flex justify-center  ">
 
   
   <ComponentLayout props={props} />

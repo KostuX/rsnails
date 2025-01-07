@@ -113,11 +113,19 @@ export default function Gallery_Frame(img) {
 
 
 
-    document.addEventListener('touchend', function () {
+    document.addEventListener('touchend',  (event)=> {
       isDragging = false;
+
+      let releasedX = startX - event.changedTouches[0].clientX
+      let releasedY = startY - event.changedTouches[0].clientY
+
+      let axis = Math.abs(releasedX) >Math.abs(releasedY) ? "x":"y"
+  
+      if(releasedX > 0){spin(true)}
+
     });
 
-    document.addEventListener("mouseup", function () {
+    document.addEventListener("mouseup",  (event)=> {
       isDragging = false;
     });
 
@@ -127,7 +135,7 @@ export default function Gallery_Frame(img) {
       isDragging = true;
     });
 
-    document.addEventListener("mousedown", function (event) {
+    document.addEventListener("mousedown",  (event) =>{
       startX = event.clientX;
       startY = event.clientY;
       isDragging = true;
@@ -195,74 +203,24 @@ export default function Gallery_Frame(img) {
 
 
 
-
-
-    // pc
-
-
-
-
-    /*
-        document.addEventListener("mousemove", function (event) {
-          if (isDragging) {
-            const deltaX = event.clientX - startX;
-            const deltaY = event.clientY - startY;
-    
-            const viewportHeight = window.innerHeight;
-            const upperHalf = (viewportHeight / 2 > event.clientY)
-    
-            if (Math.abs(deltaX) > Math.abs(deltaY)) {
-    
-              if (deltaX > 0) {
-    
-                if (upperHalf) {
-                  spin(true)
-                } else {
-                  spin(false)
-                }
-    
-              } else {
-                if (upperHalf) {
-                  spin(false)
-                } else {
-                  spin(true)
-                }
-    
-              }
-            } else {
-              if (deltaY > 0) {
-                spin(true)
-              } else {
-                spin(false)
-              }
-            }
-          }
-        });
-    
-        */
-
-
-
-
-
   })
 
 
-  function spin(forward = true) {
-    const items = document.querySelectorAll(".item")
+  function changeImage(forward = true){
     const previewImage = document.querySelector(".preview-img img")
+    let nextItemToDisplay = ((forward ? displayImageIndex + 1 : displayImageIndex - 1 + images.length))
+    nextItemToDisplay = nextItemToDisplay % images.length   
+    setDisplayImageIndex(nextItemToDisplay)
+    previewImage.scr = images[nextItemToDisplay].src
+  }
+
+  function spin(forward = true) {
+    const items = document.querySelectorAll(".item") 
     const numberOfItems = items.length
     const angle = (360 / numberOfItems)
-
-    let nextItemToDisplay = ((forward ? displayImageIndex + 1 : displayImageIndex - 1 + images.length))
-    nextItemToDisplay = nextItemToDisplay % images.length
-
-
-
-    setDisplayImageIndex(nextItemToDisplay)
     const spinTo = forward ? `+=${angle}` : `-=${angle}`
 
-    previewImage.scr = images[nextItemToDisplay].src
+    changeImage(forward)
 
     items.forEach((item) => {
       gsap.to(item, {
@@ -293,16 +251,15 @@ export default function Gallery_Frame(img) {
           </CardBody>
           <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
             <h4 className="font-bold text-large" >{images[displayImageIndex]?.title}</h4>
-            <p className="text-tiny uppercase font-bold" >{images[displayImageIndex]?.description}</p>
-
+            
           </CardHeader>
 
 
         </Card>
         <div className="mt-2">
 
-          <Button className="w-1/2" size="sm" onPress={() => { spin(true) }}> {"< Previous"} </Button>
-          <Button className="w-1/2 " size="sm" onPress={() => { spin(false) }}> {"Next >"} </Button>
+          <Button className="w-1/2" size="sm" onPress={() => { spin(false) }}> {"< Previous"} </Button>
+          <Button className="w-1/2 " size="sm" onPress={() => { spin(true) }}> {"Next >"} </Button>
 
         </div>
         {/*}

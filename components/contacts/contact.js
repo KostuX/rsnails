@@ -144,7 +144,7 @@ export default function Contact(cfg) {
               onPress={()=>{openLink(config.siteConfig.contact.soc.facebook)}}
             >
               <FaFacebook size={100} />
-              <div className="">Facebook</div>
+              <div className="">Nails With Passion</div>
             </Button>
           </div>
 
@@ -156,7 +156,7 @@ export default function Contact(cfg) {
               onPress={()=>{openLink(config.siteConfig.contact.soc.instagram)}}
             >
               <IoLogoInstagram size={100} />
-              <div className="">Instagram</div>
+              <div className="">@Ritusikas3</div>
             </Button>
           </div>
 

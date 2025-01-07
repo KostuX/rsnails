@@ -11,8 +11,8 @@ address:"Jau Greitai",
 map:
 "https://www.google.com/maps?saddr=My+Location&daddr=rsnails",
 soc:{
-  facebook:"https://www.facebook.com",
-  instagram:"https://www.instagram.com"
+  facebook:"https://www.facebook.com/profile.php?id=61567949536927",
+  instagram:"https://www.instagram.com/ritusikas3"
 }
 
   },
@@ -20,10 +20,7 @@ soc:{
   theme_secondary_dark: "#ff0000",
   navItems: [
     { label: "Pagrindinis", href: "/" },
-    {
-      label: "Paslaugos",
-      href: "/paslaugos",
-    },
+ 
     {
       label: "Galerija",
       href: "/gallery",
@@ -35,10 +32,7 @@ soc:{
   ],
   navMenuItems: [
     { label: "Pagrindinis", href: "/" },
-    {
-      label: "Paslaugos",
-      href: "/paslaugos",
-    },
+  
     {
       label: "Galerija",
       href: "/gallery",

@@ -72,7 +72,7 @@ export default function Gallery(cfg) {
   }
 
   return (
-    <div className=" bg-[url('/bg/2_6.png')] bg-center bg-cover" ref={main_div}>
+    <div className=" bg-[url('/bg/2_6.png')] bg-center bg-cover overflow-hidden" ref={main_div}>
       <div className=" uppercase text-right mx-12">
         {" "}
         {animateTitle("darbai", false)}
@@ -92,13 +92,13 @@ export default function Gallery(cfg) {
                 }}
                 key={i}
               >
-                <img src={img.src} alt={img.alt} />
+                <img src={img.src} alt={img.alt} style={{maxHeight:'500px'}} />
               </div>
             ))}
           </div>
         </div>
-        <div className=" items-center content-center justify-center max-w-2xl  ">
-          <div className="text-center mt-24 sm:mt-0">
+        <div className="items-center content-center justify-center max-w-2xl  ">
+          <div className="text-center mt-48 sm:mt-24 sm:mt-0">
             <div className="w-full font-bold text-2xl mb-4">Daugiau Rasite Cia</div>
             <div className="text-center font-thin mx-12"> 
               <Button
