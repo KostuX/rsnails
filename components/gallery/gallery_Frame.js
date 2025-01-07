@@ -57,11 +57,15 @@ export default function Gallery_Frame(img) {
     const numberOfItems = items.length;
     const angleIncrement = 360 / numberOfItems;
 
+
+    let screenSizeX = document.documentElement.clientWidth
+    let diameter = screenSizeX > 400 ? "25vw" : "70vw"
+    console.log(diameter)
     items.forEach((item, index) => {
       gsap.set(item, {
         rotateY: 90,
         rotateZ: index * angleIncrement - 90,
-        transformOrigin: "100% 300px",
+        transformOrigin: `100% ${diameter} `,
       });
       item.addEventListener("mouseover", function () {
         const imageInsideItem = item.querySelector("img");
@@ -197,7 +201,7 @@ export default function Gallery_Frame(img) {
     });
   }
   return (
-    <div className="  h-screen bg-blue-100  ">
+    <div className="   ">
       <div className="container ">
         <div className="gallery"></div>
       </div>
@@ -208,7 +212,7 @@ export default function Gallery_Frame(img) {
               alt={`${images[displayImageIndex]?.alt}`}
               className="object-cover rounded-xl "
               src={`${images[displayImageIndex]?.src}`}
-              width={270}
+             
             />
           </CardBody>
           <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
@@ -227,7 +231,7 @@ export default function Gallery_Frame(img) {
             }}
           >
             {" "}
-            {"< Previous"}{" "}
+            {"< Atgal"}{" "}
           </Button>
           <Button
             className="w-1/2 "
@@ -238,7 +242,7 @@ export default function Gallery_Frame(img) {
             }}
           >
             {" "}
-            {"Next >"}{" "}
+            {"Pirmyn  >"}{" "}
           </Button>
         </div>
       </div>

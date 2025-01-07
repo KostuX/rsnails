@@ -30,7 +30,7 @@ export const Navbar = () => {
 
   const config = config_all();
 
-  console.log(config.fonts.subTitle);
+
 
   return (
     <>
