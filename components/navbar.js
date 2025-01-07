@@ -3,6 +3,7 @@ import { ThemeSwitch } from "../components/theme-switch";
 import { cfg_site as cfg } from "../config/cfg_site";
 import { Logo } from "../components/icons";
 import { useRouter } from "next/router";
+
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -13,10 +14,23 @@ import {
   NavbarMenuItem,
 } from "@nextui-org/navbar";
 
+import { Button, Image } from "@nextui-org/react";
+import { TfiEmail } from "react-icons/tfi";
+import { LuPhoneCall } from "react-icons/lu";
+import { TbBrandGoogleMaps } from "react-icons/tb";
+import { FaFacebook } from "react-icons/fa";
+import { IoLogoInstagram } from "react-icons/io";
+
 import NextLink from "next/link";
+
+import config_all from "../config/config";
 
 export const Navbar = () => {
   const router = useRouter();
+
+  const config = config_all();
+
+  console.log(config.fonts.subTitle);
 
   return (
     <>
@@ -79,7 +93,7 @@ export const Navbar = () => {
                 {cfg.navMenuItems.map((e, index) => (
                   <NavbarMenuItem key={`${e}-${index}`}>
                     <NextLink
-                      className="w-full hover:underline text-center flex justify-center mt-4 font-bold text-2xl"
+                      className={`w-full hover:underline text-center flex justify-center mt-8 font-bold text-2xl ${config.fonts.subTitle.font}`}
                       href={e.href}
                       size="lg"
                       style={{ zIndex: 100 }}
@@ -89,6 +103,91 @@ export const Navbar = () => {
                   </NavbarMenuItem>
                 ))}
               </div>
+
+              <div className="justify-center flex">
+                <img
+                  src="/logo/logoNoBack_b.png"
+                  alt="logo"
+                  className="flex dark:hidden mt-12"
+                  style={{ width: "50%", height: "auto" }}
+                />
+                <img
+                  src="/logo/logoNoBack_w.png"
+                  alt="logo"
+                  className="hidden dark:flex mt-12"
+                  style={{ width: "50%", height: "auto" }}
+                />
+              </div>
+              <div className="justify-center grid">
+                <div className="mt-4 ">
+                  <Button
+                    className="bg-opacity-10"
+                    radius="full"
+                    size="lg"
+                    onPress={() =>
+                      router.push(`tel:${config.siteConfig.contact.phone}`)
+                    }
+                  >
+                    <LuPhoneCall size={100} />
+                    <div className="">{config.siteConfig.contact.phone}</div>
+                  </Button>
+                </div>
+
+                <div className="mt-4">
+                  <Button
+                    className="bg-opacity-10"
+                    radius="full"
+                    size="lg"
+                    onPress={() =>
+                      router.push(`mailto:${config.siteConfig.contact.email}`)
+                    }
+                  >
+                    <TfiEmail size={100} />
+                    <div className="">{config.siteConfig.contact.email}</div>
+                  </Button>
+                </div>
+
+                <div className="mt-4">
+                  <Button
+                    className="bg-opacity-10"
+                    radius="full"
+                    size="lg"
+                    onPress={() => {
+                      openLink(config.siteConfig.contact.map);
+                    }}
+                  >
+                    <TbBrandGoogleMaps size={100} />
+                    <div className="">{config.siteConfig.contact.address}</div>
+                  </Button>
+                </div>
+                <div className="mt-4">
+                  <Button
+                    className="bg-opacity-10"
+                    radius="full"
+                    size="lg"
+                    onPress={() => {
+                      openLink(config.siteConfig.contact.soc.facebook);
+                    }}
+                  >
+                    <FaFacebook size={100} />
+                    <div className="">Nails With Passion</div>
+                  </Button>
+                </div>
+                <div className="mt-4">
+                  <Button
+                    className="bg-opacity-10"
+                    radius="full"
+                    size="lg"
+                    onPress={() => {
+                      openLink(config.siteConfig.contact.soc.instagram);
+                    }}
+                  >
+                    <IoLogoInstagram size={100} />
+                    <div className="">@Ritusikas3</div>
+                  </Button>
+                </div>
+              </div>
+              <div className=" justify-center flex"> </div>
             </div>
           </NavbarMenu>
         </NavbarContent>
