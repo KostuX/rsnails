@@ -112,16 +112,29 @@ export default function Gallery_Frame(img) {
 
 
 
-
+   
     document.addEventListener('touchend',  (event)=> {
+
+      console.log(event.type)
+
+     
       isDragging = false;
 
       let releasedX = startX - event.changedTouches[0].clientX
       let releasedY = startY - event.changedTouches[0].clientY
 
       let axis = Math.abs(releasedX) >Math.abs(releasedY) ? "x":"y"
+
+      
+     
   
-      if(releasedX > 0){spin(true)}
+      if(releasedX > 0){
+   
+          changeImage(true)
+  
+       
+    
+      }
 
     });
 
@@ -141,9 +154,8 @@ export default function Gallery_Frame(img) {
       isDragging = true;
     });
 
-
+// spin wheel depends on touch position
     const moveEvent = ['touchmove', 'mousemove']
-
     moveEvent.forEach(eventType => {
       document.addEventListener(eventType, function (event) {
         if (isDragging) {
@@ -152,21 +164,16 @@ export default function Gallery_Frame(img) {
           if (eventType === 'touchmove') {
             touch = event?.touches[0];
           }
-
           const deltaX = touch.clientX - startX;
           const deltaY = touch.clientY - startY;
 
-
           let turnLeft = (deltaX - lastDeltaX) > 0
-
-
 
           const viewportHeight = window.innerHeight;
           const upperHalf = (viewportHeight / 2 > touch.clientY)
 
 
           if (Math.abs(lastDeltaX) > Math.abs(deltaY)) {
-
             if (turnLeft) {
 
               if (upperHalf) {
@@ -190,7 +197,6 @@ export default function Gallery_Frame(img) {
               spin(false)
             }
           }
-
           lastDeltaX = deltaX
         }
 
@@ -207,11 +213,18 @@ export default function Gallery_Frame(img) {
 
 
   function changeImage(forward = true){
+    setTimeout(function(){
+      /*Your code*/
+    
     const previewImage = document.querySelector(".preview-img img")
     let nextItemToDisplay = ((forward ? displayImageIndex + 1 : displayImageIndex - 1 + images.length))
+   
+
     nextItemToDisplay = nextItemToDisplay % images.length   
     setDisplayImageIndex(nextItemToDisplay)
     previewImage.scr = images[nextItemToDisplay].src
+
+  }, 1000);
   }
 
   function spin(forward = true) {
@@ -220,7 +233,7 @@ export default function Gallery_Frame(img) {
     const angle = (360 / numberOfItems)
     const spinTo = forward ? `+=${angle}` : `-=${angle}`
 
-    changeImage(forward)
+   
 
     items.forEach((item) => {
       gsap.to(item, {
@@ -258,8 +271,8 @@ export default function Gallery_Frame(img) {
         </Card>
         <div className="mt-2">
 
-          <Button className="w-1/2" size="sm" onPress={() => { spin(false) }}> {"< Previous"} </Button>
-          <Button className="w-1/2 " size="sm" onPress={() => { spin(true) }}> {"Next >"} </Button>
+          <Button className="w-1/2" size="sm" onPress={() => { spin(false);  changeImage(false) }}> {"< Previous"} </Button>
+          <Button className="w-1/2 " size="sm" onPress={() => { spin(true);  changeImage(true)}}> {"Next >"} </Button>
 
         </div>
         {/*}
