@@ -118,8 +118,8 @@ export const Navbar = () => {
                   style={{ width: "50%", height: "auto" }}
                 />
               </div>
-              <div className="justify-center grid">
-                <div className="mt-4 ">
+              <div className="justify-center ">
+                <div className="mt-4 flex justify-center">
                   <Button
                     className="bg-opacity-10"
                     radius="full"
@@ -133,7 +133,7 @@ export const Navbar = () => {
                   </Button>
                 </div>
 
-                <div className="mt-4">
+                <div className="mt-4 flex justify-center">
                   <Button
                     className="bg-opacity-10"
                     radius="full"
@@ -147,7 +147,7 @@ export const Navbar = () => {
                   </Button>
                 </div>
 
-                <div className="mt-4">
+                <div className="mt-4 flex justify-center">
                   <Button
                     className="bg-opacity-10"
                     radius="full"
@@ -160,7 +160,7 @@ export const Navbar = () => {
                     <div className="">{config.siteConfig.contact.address}</div>
                   </Button>
                 </div>
-                <div className="mt-4">
+                <div className="mt-4 flex justify-center">
                   <Button
                     className="bg-opacity-10"
                     radius="full"
@@ -173,7 +173,7 @@ export const Navbar = () => {
                     <div className="">Nails With Passion</div>
                   </Button>
                 </div>
-                <div className="mt-4">
+                <div className="mt-4 flex justify-center">
                   <Button
                     className="bg-opacity-10"
                     radius="full"
