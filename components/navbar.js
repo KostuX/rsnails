@@ -32,8 +32,14 @@ export const Navbar = () => {
               href="/"
             >
               {" "}
-              <img src="/logo/logoNoBack_w.png" className="h-[50px] hidden dark:flex "/>
-              <img src="/logo/logoNoBack_b.png" className="h-[50px] dark:hidden"/>
+              <img
+                src="/logo/logoNoBack_w.png"
+                className="h-[50px] hidden dark:flex "
+              />
+              <img
+                src="/logo/logoNoBack_b.png"
+                className="h-[50px] dark:hidden"
+              />
             </NextLink>
           </NavbarBrand>
         </NavbarContent>
@@ -68,18 +74,21 @@ export const Navbar = () => {
           <ThemeSwitch />
           <NavbarMenuToggle />
           <NavbarMenu justify="end" className="">
-            <div className="mt-36 ">
-              {cfg.navMenuItems.map((e, index) => (
-                <NavbarMenuItem key={`${e}-${index}`}>
-                  <NextLink
-                    className="w-full hover:underline text-center flex justify-center mt-4 font-bold text-2xl"
-                    href={e.href}
-                    size="lg"
-                  >
-                    {e.label}
-                  </NextLink>
-                </NavbarMenuItem>
-              ))}
+            <div className=" ">
+              <div className="justify-center">
+                {cfg.navMenuItems.map((e, index) => (
+                  <NavbarMenuItem key={`${e}-${index}`}>
+                    <NextLink
+                      className="w-full hover:underline text-center flex justify-center mt-4 font-bold text-2xl"
+                      href={e.href}
+                      size="lg"
+                      style={{ zIndex: 100 }}
+                    >
+                      {e.label}
+                    </NextLink>
+                  </NavbarMenuItem>
+                ))}
+              </div>
             </div>
           </NavbarMenu>
         </NavbarContent>

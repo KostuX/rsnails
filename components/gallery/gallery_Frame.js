@@ -175,7 +175,6 @@ export default function Gallery_Frame(img) {
 
   function changeImage(event, forward = true) {
     if (event.pointerType === "touch" || event.target.type !== "button") {
-      console.log("event type", event);
       display_index = forward ? display_index + 1 : display_index - 1;
       display_index = (display_index + images.length) % images.length;
       setDisplayImageIndex(display_index);
@@ -242,10 +241,6 @@ export default function Gallery_Frame(img) {
             {"Next >"}{" "}
           </Button>
         </div>
-        {/*}
-      <img src={images[displayImageIndex]?.src} alt={images[displayImageIndex]?.alt} />
-      <div className=" text-center">{images[displayImageIndex]?.description}</div>
-      {*/}
       </div>
     </div>
   );
