@@ -212,19 +212,14 @@ export default function Gallery_Frame(img) {
   })
 
 
-  function changeImage(forward = true){
-    setTimeout(function(){
-      /*Your code*/
-    
+  function changeImage(forward = true){  
+       
     const previewImage = document.querySelector(".preview-img img")
     let nextItemToDisplay = ((forward ? displayImageIndex + 1 : displayImageIndex - 1 + images.length))
    
-
     nextItemToDisplay = nextItemToDisplay % images.length   
     setDisplayImageIndex(nextItemToDisplay)
     previewImage.scr = images[nextItemToDisplay].src
-
-  }, 1000);
   }
 
   function spin(forward = true) {
@@ -233,7 +228,7 @@ export default function Gallery_Frame(img) {
     const angle = (360 / numberOfItems)
     const spinTo = forward ? `+=${angle}` : `-=${angle}`
 
-   
+   changeImage(forward)
 
     items.forEach((item) => {
       gsap.to(item, {
