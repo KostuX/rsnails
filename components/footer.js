@@ -48,12 +48,12 @@ export const Foot = () => {
         <div className="justify-end flex">
           <span  >
             <div className="flex"   >
-              <Facebook size={20} className="hidden sm:flex"/>
+              <Facebook size={20} />
               <div className="sm:ml-4 ml-2">       Nails With Passion</div>
 
             </div>
             <div className="flex">
-              <IoLogoInstagram size={20} className="hidden sm:flex"/>
+              <IoLogoInstagram size={20} />
               <div className="sm:ml-4 ml-2">@Ritusikas3</div>
             </div>
           </span>
