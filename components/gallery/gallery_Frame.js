@@ -191,7 +191,10 @@ export default function Gallery_Frame(img) {
   });
 
   function changeImage(event, forward = true) {
-    if (event.pointerType === "touch" || event.target.type !== "button") {
+    console.log(event.type === "press")
+    let MouseButtonClick = event.type === "press"
+    let touchIgnoreButton = event.pointerType === "touch" || event.target.type !== "button"
+    if (touchIgnoreButton || MouseButtonClick) {
       display_index = forward ? display_index + 1 : display_index - 1;
       display_index = (display_index + images.length) % images.length;
       setDisplayImageIndex(display_index);
@@ -249,7 +252,7 @@ export default function Gallery_Frame(img) {
           <Button
             className="w-1/2 "
             size="sm"
-            onPress={() => {
+            onPress={(event) => {
               spin(true);
               changeImage(event, true);
             }}
