@@ -59,13 +59,13 @@ export default function Gallery_Frame(img) {
 
 
     let screenSizeX = document.documentElement.clientWidth
-    let diameter = screenSizeX > 400 ? "25vw" : "60vw"
+    let diameter = screenSizeX > 400 ? "25vw" : "80vw"
 
     items.forEach((item, index) => {
       gsap.set(item, {
         rotateY: 90,
         rotateZ: index * angleIncrement - 90,
-        transformOrigin: `100% ${diameter} `,
+        transformOrigin: `100% ${diameter}`,
       });
       item.addEventListener("mouseover", function () {
         const imageInsideItem = item.querySelector("img");
@@ -118,6 +118,19 @@ export default function Gallery_Frame(img) {
 
     document.addEventListener("mouseup", (event) => {
       isDragging = false;
+      
+      let releasedX = startX - event.clientX;
+      let releasedY = startY - event.clientY;
+
+      let axis = Math.abs(releasedX) > Math.abs(releasedY) ? "x" : "y";
+
+      if (axis === "x") {
+        let fw = releasedX > 0;
+        changeImage(event, fw);
+      } else {
+        let fw = releasedY > 0;
+        changeImage(event, fw);
+      }
     });
 
     document.addEventListener("touchstart", (event) => {
