@@ -1,6 +1,6 @@
 import { Button, Divider } from "@nextui-org/react";
-import animateTitle from "../../utils/animateTitle";
-import { useRouter } from 'next/router'
+import animateTitle from "../reusable/animateTitle";
+import { useRouter } from "next/router";
 import { cfg_images } from "../../config/cfg_images";
 
 import gsap from "gsap";
@@ -9,9 +9,9 @@ gsap.registerPlugin(CustomEase);
 import { useGSAP } from "@gsap/react";
 import { useRef, useEffect, useState } from "react";
 
-export default function Gallery(cfg) {
-  const router = useRouter()
-  const config = cfg.config
+export default function Jobs(cfg) {
+  const router = useRouter();
+  const config = cfg.config;
   let images = cfg_images.short;
 
   let isAnimating = false;
@@ -34,10 +34,7 @@ export default function Gallery(cfg) {
       opacity: 1,
       scrollTrigger: {
         trigger: main_div.current,
-
         toggleActions: "restart pause pause reverse",
-        // scrub: 0.1, // true or number  // tie to scrool bar
-        // pin: true
       },
     });
   }
@@ -72,7 +69,10 @@ export default function Gallery(cfg) {
   }
 
   return (
-    <div className=" bg-[url('/bg/2_6.png')] bg-center bg-cover overflow-hidden" ref={main_div}>
+    <div
+      className=" bg-[url('/bg/2_6.png')] bg-center bg-cover overflow-hidden"
+      ref={main_div}
+    >
       <div className=" uppercase text-right mx-12">
         {" "}
         {animateTitle("darbai", false)}
@@ -92,23 +92,30 @@ export default function Gallery(cfg) {
                 }}
                 key={i}
               >
-                <img src={img.src} alt={img.alt} style={{maxHeight:'500px'}} />
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  style={{ maxHeight: "500px" }}
+                />
               </div>
             ))}
           </div>
         </div>
         <div className="items-center content-center justify-center max-w-2xl  ">
           <div className="text-center mt-48  sm:mt-0">
-            <div className="w-full font-bold text-2xl mb-4">Daugiau Rasite Cia</div>
-            <div className="text-center font-thin mx-12"> 
+            <div className="w-full font-bold text-2xl mb-4">
+              Daugiau Rasite Cia
+            </div>
+            <div className="text-center font-thin mx-12">
               <Button
-            className="mx-4 bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
-            radius="full"
-            size="lg"
-            onPress={() => router.push(`/gallery`)}
-          >
-            Galerija
-          </Button></div>
+                className="mx-4 bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+                radius="full"
+                size="lg"
+                onPress={() => router.push(`/gallery`)}
+              >
+                Galerija
+              </Button>
+            </div>
           </div>
         </div>
       </div>

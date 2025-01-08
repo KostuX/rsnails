@@ -1,4 +1,4 @@
-import animateTitle from "../utils/animateTitle";
+import animateTitle from "../components/reusable/animateTitle";
 export default function ComponentLayout(props) {
   let el = props.props.elements;
   let left = props.props.leftSide;
@@ -9,7 +9,9 @@ export default function ComponentLayout(props) {
   let textComp = (
     <div className=" items-center content-center justify-center max-w-2xl">
       <div className="text-center mt-12 ">
-        <div className={`w-full mb-4 ${config.fonts.subTitle.size}`}>
+        <div
+          className={`w-full mb-4 ${config.fonts.subTitle.size} ${config.fonts.subTitle.font} `}
+        >
           {el.subTitle}
         </div>
         <div
@@ -21,7 +23,6 @@ export default function ComponentLayout(props) {
     </div>
   );
   return (
-
     <div style={{ minHeight: "75vh" }}>
       <div className={`uppercase  ${left ? "text-left" : "text-right"} mx-12`}>
         {animateTitle(el.title, left)}
@@ -31,6 +32,5 @@ export default function ComponentLayout(props) {
         {left ? imageComp : textComp}
       </div>
     </div>
- 
   );
 }

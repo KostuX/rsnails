@@ -1,4 +1,4 @@
-import ImageFrame from "./image_Frame";
+import ImageFrame from "./cardsView";
 import config_all from "../../config/config";
 import { useEffect, useState } from "react";
 import Gallery_Card from "../paslaugos/card";
@@ -11,7 +11,7 @@ import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 
 gsap.registerPlugin(useGSAP);
 
-export default function Gallery_Frame(img) {
+export default function Circle(img) {
   const config = config_all();
   const [displayImageIndex, setDisplayImageIndex] = useState(0);
 
@@ -57,9 +57,8 @@ export default function Gallery_Frame(img) {
     const numberOfItems = items.length;
     const angleIncrement = 360 / numberOfItems;
 
-
-    let screenSizeX = document.documentElement.clientWidth
-    let diameter = screenSizeX > 400 ? "25vw" : "80vw"
+    let screenSizeX = document.documentElement.clientWidth;
+    let diameter = screenSizeX > 400 ? "25vw" : "80vw";
 
     items.forEach((item, index) => {
       gsap.set(item, {
@@ -118,7 +117,7 @@ export default function Gallery_Frame(img) {
 
     document.addEventListener("mouseup", (event) => {
       isDragging = false;
-      
+
       let releasedX = startX - event.clientX;
       let releasedY = startY - event.clientY;
 
@@ -191,9 +190,9 @@ export default function Gallery_Frame(img) {
   });
 
   function changeImage(event, forward = true) {
-
-    let MouseButtonClick = event.type === "press"
-    let touchIgnoreButton = event.pointerType === "touch" || event.target.type !== "button"
+    let MouseButtonClick = event.type === "press";
+    let touchIgnoreButton =
+      event.pointerType === "touch" || event.target.type !== "button";
     if (touchIgnoreButton || MouseButtonClick) {
       display_index = forward ? display_index + 1 : display_index - 1;
       display_index = (display_index + images.length) % images.length;
@@ -217,7 +216,7 @@ export default function Gallery_Frame(img) {
     });
   }
   return (
-    <div className="   ">
+    <div className=" mt-24  ">
       <div className="container ">
         <div className="gallery"></div>
       </div>
@@ -228,7 +227,6 @@ export default function Gallery_Frame(img) {
               alt={`${images[displayImageIndex]?.alt}`}
               className="object-cover rounded-xl "
               src={`${images[displayImageIndex]?.src}`}
-             
             />
           </CardBody>
           <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">

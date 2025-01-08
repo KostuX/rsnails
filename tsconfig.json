@@ -28,7 +28,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
-    "components/icons.js",
+    "components/reusable/icons.js",
     ".next/types/**/*.ts"
 , "components/theme-switch.tsxx"  ],
   "exclude": [

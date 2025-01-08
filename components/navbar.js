@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemeSwitch } from "../components/theme-switch";
 import { cfg_site as cfg } from "../config/cfg_site";
-import { Logo } from "../components/icons";
+import { Logo } from "./reusable/icons";
 import { useRouter } from "next/router";
 
 import {

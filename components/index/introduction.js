@@ -1,9 +1,13 @@
 import { useRef } from "react";
+
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+
 import ComponentLayout from "../../layouts/components";
-export default function Block2(cfg) {
-  const config = cfg.config
+import { introduction } from "../../config/variables";
+
+export default function Introduction(cfg) {
+  const config = cfg.config;
   const subTitle = useRef();
   const content = useRef();
   const img = useRef();
@@ -18,7 +22,6 @@ export default function Block2(cfg) {
         duration: 1,
         ease: "power1",
         x: 0,
-
         scrollTrigger: {
           trigger: content.current,
           toggleActions: "restart pause pause reverse",
@@ -35,7 +38,6 @@ export default function Block2(cfg) {
         duration: 1,
         ease: "power1",
         x: 0,
-
         scrollTrigger: {
           trigger: subTitle.current,
           toggleActions: "restart pause pause reverse",
@@ -52,7 +54,6 @@ export default function Block2(cfg) {
         duration: 1,
         ease: "power1",
         scale: 1,
-
         scrollTrigger: {
           trigger: img.current,
           toggleActions: "restart pause pause reverse",
@@ -65,34 +66,23 @@ export default function Block2(cfg) {
     config: config,
     leftSide: false,
     elements: {
-      title: "Apie Mus",
-      subTitle: <div ref={subTitle}>RS Nails</div>,
-      content: (
-       
-        <div ref={content} >
-          "Nedvejokite siekti aukštumų, kai kalbama apie jūsų nagų dizaino siekius. Nesvarbu, ar svajojate apie subtilias gėles, įspūdingus gradientinius efektus, nesenstančią klasikinę raudoną spalvą ar elegantišką prancūzišką manikiūrą - mes pasirūpinsime jūsų norais.
-          „RS Nails“ salone mūsų profesionalų komanda yra pasirengusi paversti jūsų nagų svajones realybe. Pasitelkę neprilygstamą patirtį ir dėmesį detalėms, siekiame pranokti jūsų lūkesčius kiekvieno apsilankymo metu.
-         "
-        </div>
-      ),
+      title: introduction.title,
+      subTitle: <div ref={subTitle}>{introduction.subTitle}</div>,
+      content: <div ref={content}>{introduction.content}</div>,
       img: (
         <img
           className="max-h-[75vh] max-w-[75vh]"
-          src="/img/work.png"
-          alt="Profile Image"
+          src={introduction.img.src}
+          alt={introduction.img.alt}
           ref={img}
         />
       ),
     },
   };
 
-  return   (
+  return (
     <div className="sm:bg-[url('/bg/2_3.png')]  bg-cover bg-no-repeat flex justify-center  ">
-
-  
-  <ComponentLayout props={props} />
-
-  
-  </div>
-  )
+      <ComponentLayout props={props} />
+    </div>
+  );
 }

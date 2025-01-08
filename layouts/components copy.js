@@ -1,4 +1,4 @@
-import animateTitle from "../utils/animateTitle";
+import animateTitle from "../components/reusable/animateTitle";
 export default function ComponentLayout(props) {
   let el = props.props.elements;
   let left = props.props.leftSide;

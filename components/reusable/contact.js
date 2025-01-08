@@ -1,9 +1,6 @@
 import { Button } from "@nextui-org/react";
-import { TfiEmail } from "react-icons/tfi";
-import { LuPhoneCall } from "react-icons/lu";
-import { TbBrandGoogleMaps } from "react-icons/tb";
-import { FaFacebook } from "react-icons/fa";
-import { IoLogoInstagram } from "react-icons/io";
+import { GoogleMaps, Facebook, Instagram, Phone, Email } from "./icons";
+
 import { useRouter } from "next/router";
 
 import { useRef } from "react";
@@ -12,7 +9,6 @@ import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import ComponentLayout from "../../layouts/components";
-import { Facebook } from "../icons";
 
 export default function Contact(cfg) {
   const router = useRouter();
@@ -80,6 +76,37 @@ export default function Contact(cfg) {
     );
   });
 
+  let contactButtons = [
+    {
+      icon: <Phone size={100} />,
+      text: config.siteConfig.contact.phone,
+      onPress: () => router.push(`tel:${config.siteConfig.contact.phone}`),
+    },
+    {
+      icon: <Email size={100} />,
+      text: config.siteConfig.contact.email,
+      onPress: () => router.push(`mailto:${config.siteConfig.contact.email}`),
+    },
+    {
+      icon: <GoogleMaps size={100} />,
+      text: config.siteConfig.contact.address,
+      onPress: () => openLink(config.siteConfig.contact.map),
+    },
+  ];
+
+  let socialButtons = [
+    {
+      icon: <Facebook size={100} />,
+      text: "Nails With Passion",
+      onPress: () => openLink(config.siteConfig.contact.soc.facebook),
+    },
+    {
+      icon: <Instagram size={100} />,
+      text: "@Ritusikas3",
+      onPress: () => openLink(config.siteConfig.contact.soc.instagram),
+    },
+  ];
+
   let props = {
     config: config,
     leftSide: true,
@@ -92,47 +119,20 @@ export default function Contact(cfg) {
       ),
       content: (
         <div className="mt-12 " ref={content}>
-          <div className="mt-4 ">
-            <Button
-              className="bg-opacity-10"
-              radius="full"
-              size="lg"
-              onPress={() =>
-                router.push(`tel:${config.siteConfig.contact.phone}`)
-              }
-            >
-              <LuPhoneCall size={100} />
-              <div className="">{config.siteConfig.contact.phone}</div>
-            </Button>
-          </div>
-
-          <div className="mt-4">
-            <Button
-              className="bg-opacity-10"
-              radius="full"
-              size="lg"
-              onPress={() =>
-                router.push(`mailto:${config.siteConfig.contact.email}`)
-              }
-            >
-              <TfiEmail size={100} />
-              <div className="">{config.siteConfig.contact.email}</div>
-            </Button>
-          </div>
-
-          <div className="mt-4">
-            <Button
-              className="bg-opacity-10"
-              radius="full"
-              size="lg"
-              onPress={() => {
-                openLink(config.siteConfig.contact.map);
-              }}
-            >
-              <TbBrandGoogleMaps size={100} />
-              <div className="">{config.siteConfig.contact.address}</div>
-            </Button>
-          </div>
+          {contactButtons.map((button, index) => (
+            <div className="mt-4 " key={index}>
+              <Button
+                key={index}
+                className="bg-opacity-10"
+                radius="full"
+                size="lg"
+                onPress={button.onPress}
+              >
+                {button.icon}
+                <div className="">{button.text}</div>
+              </Button>
+            </div>
+          ))}
         </div>
       ),
       img: (
@@ -141,33 +141,20 @@ export default function Contact(cfg) {
             Socialiniai Tinklai
           </div>
           <div className="mt-12">
-            <div className="mt-4">
-              <Button
-                className="bg-opacity-10"
-                radius="full"
-                size="lg"
-                onPress={() => {
-                  openLink(config.siteConfig.contact.soc.facebook);
-                }}
-              >
-                <FaFacebook size={100} />
-                <div className="">Nails With Passion</div>
-              </Button>
-            </div>
-
-            <div className="mt-4">
-              <Button
-                className="bg-opacity-10"
-                radius="full"
-                size="lg"
-                onPress={() => {
-                  openLink(config.siteConfig.contact.soc.instagram);
-                }}
-              >
-                <IoLogoInstagram size={100} />
-                <div className="">@Ritusikas3</div>
-              </Button>
-            </div>
+            {socialButtons.map((button, index) => (
+              <div className="mt-4" key={index}>
+                <Button
+                  key={index}
+                  className="bg-opacity-10"
+                  radius="full"
+                  size="lg"
+                  onPress={button.onPress}
+                >
+                  {button.icon}
+                  <div className="">{button.text}</div>
+                </Button>
+              </div>
+            ))}
           </div>
         </div>
       ),

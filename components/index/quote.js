@@ -1,4 +1,5 @@
-export default function Intro2(cfg) {
+import { quote } from "../../config/variables";
+export default function Quote(cfg) {
   const config = cfg.config;
   return (
     <div
@@ -8,7 +9,7 @@ export default function Intro2(cfg) {
       <div
         className={`text-center mx-6 sm:mx-24 mt-48 max-w-[98vh]  ${config.fonts.text.size} ${config.fonts.text.font} `}
       >
-        "Moters grožis atsiskleidžia jos šypsenoje, spindinčiose akyse, širdies gerume, elegancijoje, natūralume, pasitikėjime savimi, charizmoje ir išskirtinume. Dar labiau pabrėžkite šį grožį įspūdingu nagų dizainu!"
+        {quote}
       </div>
     </div>
   );

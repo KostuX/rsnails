@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 import { Playfair_Display } from "next/font/google";
 const titleFont = Playfair_Display({ weight: "400", subsets: ["latin"] });
@@ -39,7 +39,7 @@ export default function animateTitle(txt, left = true) {
   let textArr = txt.split("");
 
   useGSAP(() => {
-    gsap.registerPlugin(ScrollTrigger)
+    gsap.registerPlugin(ScrollTrigger);
     gsap.fromTo(
       chars.current,
       {
