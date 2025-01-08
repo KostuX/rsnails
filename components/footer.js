@@ -19,16 +19,16 @@ export const Foot = () => {
       <span className=" text-center grid grid-cols-2 sm:grid-cols-3 gap-4  m-3 text-foreground/80">
         <span>
           <div className="flex justify-left">
-           <LuPhoneCall size={20} /> 
-           <div className="sm:ml-4 ml-2"> {cfg_site.contact.phone}</div>
+            <LuPhoneCall size={20} className="hidden sm:flex"/>
+            <div className="sm:ml-4 ml-2"> {cfg_site.contact.phone}</div>
           </div>
           <div className="flex justify-left">
-            <TfiEmail size={20} />
+            <TfiEmail size={20} className="hidden sm:flex"/>
             <div className="sm:ml-4 ml-2"> {cfg_site.contact.email}</div>
           </div>
           <div className="flex justify-left">
-          <TbBrandGoogleMaps size={20} />
-          <div className="sm:ml-4 ml-2"> {cfg_site.contact.address}</div>
+            <TbBrandGoogleMaps size={20} className="hidden sm:flex"/>
+            <div className="sm:ml-4 ml-2"> {cfg_site.contact.address}</div>
           </div>
         </span>
 
@@ -36,27 +36,27 @@ export const Foot = () => {
         <span className="hidden sm:flex">
           <ul className="flex justify-center ">
             <li>
-            
+
               © {cfg_site.year}
-          <a href="#" className="hover:underline">
-            {" "}
-            {cfg_site.title}
-          </a>
+              <a href="#" className="hover:underline">
+                {" "}
+                {cfg_site.title}
+              </a>
             </li>
           </ul>
         </span>
         <div className="justify-end flex">
-        <span  >
-        <div className="flex"   >
-                <Facebook size={20}/>
-                <div className="sm:ml-4 ml-2">       Nails With Passion</div>
-        
-              </div>
-              <div className="flex">
-                  <IoLogoInstagram size={20} />
-                                    <div className="sm:ml-4 ml-2">@Ritusikas3</div>
-              </div>
-        </span>
+          <span  >
+            <div className="flex"   >
+              <Facebook size={20} className="hidden sm:flex"/>
+              <div className="sm:ml-4 ml-2">       Nails With Passion</div>
+
+            </div>
+            <div className="flex">
+              <IoLogoInstagram size={20} className="hidden sm:flex"/>
+              <div className="sm:ml-4 ml-2">@Ritusikas3</div>
+            </div>
+          </span>
         </div>
       </span>
     </footer>
