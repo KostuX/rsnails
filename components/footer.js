@@ -16,24 +16,24 @@ export const Foot = () => {
   }, []);
   return (
     <footer className="border-t  bg-background w-full   p-4 text-sm text-gray-300  mt-10  ">
-      <span className=" text-center grid grid-cols-3 gap-4  m-3 text-foreground/80">
+      <span className=" text-center grid grid-cols-2 sm:grid-cols-3 gap-4  m-3 text-foreground/80">
         <span>
           <div className="flex justify-left">
            <LuPhoneCall size={20} /> 
-           <div className="ml-4"> {cfg_site.contact.phone}</div>
+           <div className="sm:ml-4 ml-2"> {cfg_site.contact.phone}</div>
           </div>
           <div className="flex justify-left">
             <TfiEmail size={20} />
-            <div className="ml-4"> {cfg_site.contact.email}</div>
+            <div className="sm:ml-4 ml-2"> {cfg_site.contact.email}</div>
           </div>
           <div className="flex justify-left">
           <TbBrandGoogleMaps size={20} />
-          <div className="ml-4"> {cfg_site.contact.address}</div>
+          <div className="sm:ml-4 ml-2"> {cfg_site.contact.address}</div>
           </div>
         </span>
 
 
-        <span>
+        <span className="hidden sm:flex">
           <ul className="flex justify-center ">
             <li>
             
@@ -49,12 +49,12 @@ export const Foot = () => {
         <span  >
         <div className="flex"   >
                 <Facebook size={20}/>
-                <div className="ml-4">       Nails With Passion</div>
+                <div className="sm:ml-4 ml-2">       Nails With Passion</div>
         
               </div>
               <div className="flex">
                   <IoLogoInstagram size={20} />
-                                    <div className="ml-4">@Ritusikas3</div>
+                                    <div className="sm:ml-4 ml-2">@Ritusikas3</div>
               </div>
         </span>
         </div>

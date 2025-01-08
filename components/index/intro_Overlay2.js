@@ -39,7 +39,7 @@ export default function Intro(cfg) {
     gsap.fromTo(
       imgCenter.current,
       { opacity: 0 },
-      { opacity: 1, duration: 1, ease: "power2.out", delay: 1 }
+      { opacity: 1, duration: 1, ease: "power2.out", delay: 0.5 }
     );
     gsap.fromTo(
       imgBottom.current,
