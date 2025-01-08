@@ -191,7 +191,7 @@ export default function Gallery_Frame(img) {
   });
 
   function changeImage(event, forward = true) {
-    console.log(event.type === "press")
+
     let MouseButtonClick = event.type === "press"
     let touchIgnoreButton = event.pointerType === "touch" || event.target.type !== "button"
     if (touchIgnoreButton || MouseButtonClick) {

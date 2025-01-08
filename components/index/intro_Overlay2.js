@@ -1,5 +1,4 @@
-import Banner from "./intro_Banner";
-import splitText from "../../utils/textSplit";
+
 import React, { useRef } from "react";
 import { Button } from "@nextui-org/react";
 import gsap from "gsap";

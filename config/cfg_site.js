@@ -6,10 +6,10 @@ export const cfg_site = {
   year: "2024",
   contact:{
 phone:"+370 673 86566",
-email: "Jau Greitai",
-address:"Jau Greitai",
+email: "aritute@gmail.com",
+address:"Domeikava, Kaunas",
 map:
-"https://www.google.com/maps?saddr=My+Location&daddr=rsnails",
+"https://www.google.com/maps?saddr=My+Location&daddr=/Domeikava,+Kaunas+District+Municipality,+Lithuania",
 soc:{
   facebook:"https://www.facebook.com/profile.php?id=61567949536927",
   instagram:"https://www.instagram.com/ritusikas3"

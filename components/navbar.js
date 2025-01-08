@@ -30,7 +30,10 @@ export const Navbar = () => {
 
   const config = config_all();
 
-
+  function openLink(link) {
+    const newWindow = window.open(link, "_blank", "noopener,noreferrer");
+    if (newWindow) newWindow.opener = null;
+  }
 
   return (
     <>
