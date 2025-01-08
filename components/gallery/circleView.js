@@ -2,6 +2,8 @@ import ImageFrame from "./cardsView";
 import config_all from "../../config/config";
 import { useEffect, useState } from "react";
 import Gallery_Card from "../paslaugos/card";
+import { Navbar } from "../navbar";
+import { Head } from "../head";
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
@@ -216,50 +218,54 @@ export default function Circle(img) {
     });
   }
   return (
-    <div className=" mt-24  ">
-      <div className="container ">
-        <div className="gallery"></div>
-      </div>
-      <div className="preview-img ">
-        <Card className="py-4">
-          <CardBody className="overflow-visible py-2  justify-center grid">
-            <Image
-              alt={`${images[displayImageIndex]?.alt}`}
-              className="object-cover rounded-xl "
-              src={`${images[displayImageIndex]?.src}`}
-            />
-          </CardBody>
-          <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-            <h4 className="font-bold text-large">
-              {images[displayImageIndex]?.title}
-            </h4>
-          </CardHeader>
-        </Card>
-        <div className="mt-2">
-          <Button
-            className="w-1/2  bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
-            size="sm"
-            onPress={(event) => {
-              spin(false);
-              changeImage(event, false);
-            }}
-          >
-            {" "}
-            {"< Atgal"}{" "}
-          </Button>
-          <Button
-            className="w-1/2  bg-gradient-to-tl from-pink-500 to-yellow-500 text-white shadow-lg"
-            size="sm"
-            onPress={(event) => {
-              spin(true);
-              changeImage(event, true);
-            }}
-          >
-            {" "}
-            {"Pirmyn  >"}{" "}
-          </Button>
+    <>
+      <Head />
+      <Navbar />
+      <div className="mt-24 sm:mt-48  ">
+        <div className="container ">
+          <div className="gallery"></div>
+        </div>
+        <div className="preview-img ">
+          <Card className="py-4">
+            <CardBody className="overflow-visible py-2  justify-center grid">
+              <Image
+                alt={`${images[displayImageIndex]?.alt}`}
+                className="object-cover rounded-xl "
+                src={`${images[displayImageIndex]?.src}`}
+              />
+            </CardBody>
+            <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+              <h4 className="font-bold text-large">
+                {images[displayImageIndex]?.title}
+              </h4>
+            </CardHeader>
+          </Card>
+          <div className="mt-2">
+            <Button
+              className="w-1/2  bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+              size="sm"
+              onPress={(event) => {
+                spin(false);
+                changeImage(event, false);
+              }}
+            >
+              {" "}
+              {"< Atgal"}{" "}
+            </Button>
+            <Button
+              className="w-1/2  bg-gradient-to-tl from-pink-500 to-yellow-500 text-white shadow-lg"
+              size="sm"
+              onPress={(event) => {
+                spin(true);
+                changeImage(event, true);
+              }}
+            >
+              {" "}
+              {"Pirmyn  >"}{" "}
+            </Button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
