@@ -59,8 +59,8 @@ export default function Gallery_Frame(img) {
 
 
     let screenSizeX = document.documentElement.clientWidth
-    let diameter = screenSizeX > 400 ? "25vw" : "70vw"
-    console.log(diameter)
+    let diameter = screenSizeX > 400 ? "25vw" : "60vw"
+
     items.forEach((item, index) => {
       gsap.set(item, {
         rotateY: 90,
