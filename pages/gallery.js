@@ -12,8 +12,8 @@ import { cfg_images } from "../config/cfg_images";
 export default function gallery(cfg) {
   let images = cfg_images.gallery;
 
-  // types: ["3D Circle", "2D Cards"]
   const [viewType, setViewType] = useState(<Circle images={images} />);
+  const [inView, setInView] = useState("circle");
 
   return (
     <div className="">
@@ -22,23 +22,27 @@ export default function gallery(cfg) {
         <Navbar />
         <div className="justify-center flex z-0 ">
           <div className=" sm:mt-6 fixed">
-            <div className="text-center text-sm font-bold">View</div>
+            <div className="text-center text-sm font-bold">Peržiūra</div>
             <ButtonGroup>
               <Button
-                isDisabled={viewType === "3D Circle"}
+                className=" bg-gradient-to-tl from-pink-500 to-yellow-500 text-white shadow-lg"
+                isDisabled={inView === "circle"}
                 onPress={() => {
                   setViewType(<Circle images={images} />);
+                  setInView("circle");
                 }}
               >
-                Wheel
+                Ratas
               </Button>
               <Button
-                isDisabled={viewType === <Cards images={images} />}
+                className=" bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+                isDisabled={inView === "cards"}
                 onPress={() => {
                   setViewType(<Cards images={images} />);
+                  setInView("cards");
                 }}
               >
-                Cards
+                Kortelės
               </Button>
             </ButtonGroup>
           </div>

@@ -237,7 +237,7 @@ export default function Circle(img) {
         </Card>
         <div className="mt-2">
           <Button
-            className="w-1/2"
+            className="w-1/2  bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
             size="sm"
             onPress={(event) => {
               spin(false);
@@ -248,7 +248,7 @@ export default function Circle(img) {
             {"< Atgal"}{" "}
           </Button>
           <Button
-            className="w-1/2 "
+            className="w-1/2  bg-gradient-to-tl from-pink-500 to-yellow-500 text-white shadow-lg"
             size="sm"
             onPress={(event) => {
               spin(true);

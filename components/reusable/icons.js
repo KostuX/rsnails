@@ -20,9 +20,6 @@ export const Location = ({ size = 32, width, height, ...props }) => {
 export const Facebook = ({ size = 32, width, height, ...props }) => {
   return <FaFacebook size={size} />;
 };
-export const GoogleMaps = ({ size = 32, width, height, ...props }) => {
-  return <TbBrandGoogleMaps size={size} />;
-};
 
 export const Instagram = ({ size = 32, width, height, ...props }) => {
   return <IoLogoInstagram size={size} />;

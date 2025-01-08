@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemeSwitch } from "../components/theme-switch";
 import { cfg_site as cfg } from "../config/cfg_site";
-import { Logo } from "./reusable/icons";
+import { Phone, Email, Location, Facebook, Instagram } from "./reusable/icons";
 import { useRouter } from "next/router";
 
 import {
@@ -15,11 +15,6 @@ import {
 } from "@nextui-org/navbar";
 
 import { Button, Image } from "@nextui-org/react";
-import { TfiEmail } from "react-icons/tfi";
-import { LuPhoneCall } from "react-icons/lu";
-import { TbBrandGoogleMaps } from "react-icons/tb";
-import { FaFacebook } from "react-icons/fa";
-import { IoLogoInstagram } from "react-icons/io";
 
 import NextLink from "next/link";
 
@@ -131,7 +126,7 @@ export const Navbar = () => {
                       router.push(`tel:${config.siteConfig.contact.phone}`)
                     }
                   >
-                    <LuPhoneCall size={100} />
+                    <Phone size={100} />
                     <div className="">{config.siteConfig.contact.phone}</div>
                   </Button>
                 </div>
@@ -145,7 +140,7 @@ export const Navbar = () => {
                       router.push(`mailto:${config.siteConfig.contact.email}`)
                     }
                   >
-                    <TfiEmail size={100} />
+                    <Email size={100} />
                     <div className="">{config.siteConfig.contact.email}</div>
                   </Button>
                 </div>
@@ -159,7 +154,7 @@ export const Navbar = () => {
                       openLink(config.siteConfig.contact.map);
                     }}
                   >
-                    <TbBrandGoogleMaps size={100} />
+                    <Location size={100} />
                     <div className="">{config.siteConfig.contact.address}</div>
                   </Button>
                 </div>
@@ -172,7 +167,7 @@ export const Navbar = () => {
                       openLink(config.siteConfig.contact.soc.facebook);
                     }}
                   >
-                    <FaFacebook size={100} />
+                    <Facebook size={100} />
                     <div className="">Nails With Passion</div>
                   </Button>
                 </div>
@@ -185,7 +180,7 @@ export const Navbar = () => {
                       openLink(config.siteConfig.contact.soc.instagram);
                     }}
                   >
-                    <IoLogoInstagram size={100} />
+                    <Instagram size={100} />
                     <div className="">@Ritusikas3</div>
                   </Button>
                 </div>

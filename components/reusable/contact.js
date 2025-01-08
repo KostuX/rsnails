@@ -1,5 +1,5 @@
 import { Button } from "@nextui-org/react";
-import { GoogleMaps, Facebook, Instagram, Phone, Email } from "./icons";
+import { Location, Facebook, Instagram, Phone, Email } from "./icons";
 
 import { useRouter } from "next/router";
 
@@ -88,7 +88,7 @@ export default function Contact(cfg) {
       onPress: () => router.push(`mailto:${config.siteConfig.contact.email}`),
     },
     {
-      icon: <GoogleMaps size={100} />,
+      icon: <Location size={100} />,
       text: config.siteConfig.contact.address,
       onPress: () => openLink(config.siteConfig.contact.map),
     },
