@@ -4,6 +4,8 @@ import { Head } from "../components/head";
 
 import { useState, useEffect } from "react";
 import { IoIosArrowRoundUp } from "react-icons/io";
+import ScrollContext from "./ScrollContext";
+import { Providers } from "./providers";
 
 export default function DefaultLayout({ children }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,6 +29,8 @@ export default function DefaultLayout({ children }) {
     <div>
       <Head />
       <Navbar />
+      <Providers>
+        <ScrollContext>
       <main className="block">{children}</main>
 
       <button
@@ -37,6 +41,8 @@ export default function DefaultLayout({ children }) {
         I Viršų
         <IoIosArrowRoundUp className="inline-block h-4 w-4" />
       </button>
+      </ScrollContext>
+      </Providers>
       <Foot />
     </div>
   );
