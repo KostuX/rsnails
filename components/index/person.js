@@ -18,7 +18,7 @@ export default function Person(cfg) {
       content.current,
       { opacity: 0, y: 150 },
       {
-        delay: 0.7,
+        delay: 0.2,
         opacity: 1,
         duration: 1,
         ease: "power1",
@@ -35,7 +35,7 @@ export default function Person(cfg) {
       subTitle.current,
       { opacity: 0, y: 100 },
       {
-        delay: 1,
+        delay: 0.5,
         opacity: 1,
         duration: 1,
         ease: "power1",
@@ -52,7 +52,7 @@ export default function Person(cfg) {
       img.current,
       { opacity: 0, scale: 1.5 },
       {
-        delay: 0.5,
+    
         opacity: 1,
         duration: 1,
         ease: "power1",

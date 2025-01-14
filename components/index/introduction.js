@@ -17,7 +17,7 @@ export default function Introduction(cfg) {
       content.current,
       { opacity: 0, x: 150 },
       {
-        delay: 0.7,
+        delay: 0.2,
         opacity: 1,
         duration: 1,
         ease: "power1",
@@ -33,7 +33,7 @@ export default function Introduction(cfg) {
       subTitle.current,
       { opacity: 0, x: 100 },
       {
-        delay: 1,
+        delay: 0.5,
         opacity: 1,
         duration: 1,
         ease: "power1",
@@ -49,7 +49,7 @@ export default function Introduction(cfg) {
       img.current,
       { opacity: 0, scale: 0.5 },
       {
-        delay: 0.5,
+        
         opacity: 1,
         duration: 1,
         ease: "power1",
