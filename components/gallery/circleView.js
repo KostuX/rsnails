@@ -225,7 +225,7 @@ export default function Circle(img) {
         <div className="container ">
           <div className="gallery"></div>
         </div>
-        <div className="preview-img ">
+        <div className="preview-img mt-24">
           <Card className="py-4">
             <CardBody className="overflow-visible py-2  justify-center grid">
               <Image

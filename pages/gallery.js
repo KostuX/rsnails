@@ -62,7 +62,9 @@ export default function gallery(cfg) {
             </ButtonGroup>
           </div>
         </div>
+      
         {viewType}
+      
       </div>
     </div>
   );
