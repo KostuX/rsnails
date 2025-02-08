@@ -1,6 +1,7 @@
 import { Navbar } from "../components/navbar";
 import { Foot } from "../components/footer";
 import { Head } from "../components/head";
+import { Analytics } from '@vercel/analytics/next';
 
 import { useState, useEffect } from "react";
 import { IoIosArrowRoundUp } from "react-icons/io";
@@ -44,6 +45,8 @@ export default function DefaultLayout({ children }) {
       </ScrollContext>
       </Providers>
       <Foot />
+      <Analytics/>
     </div>
+    
   );
 }
